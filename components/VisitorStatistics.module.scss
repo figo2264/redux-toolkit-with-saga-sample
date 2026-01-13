@@ -1,0 +1,184 @@
+// Variables
+$color-title: #101828;
+$color-text-secondary: #888a91;
+$color-text-muted: #6b7280;
+$color-text-dark: #49494c;
+$color-border: #f3f4f6;
+$color-border-tooltip: #dde2f1;
+$color-bg-card: #ffffff;
+$color-bg-inactive: #f3f4f6;
+
+$font-family: 'Inter', 'Noto Sans KR', sans-serif;
+$font-family-pretendard: 'Pretendard', 'Inter', sans-serif;
+
+$border-radius-card: 10px;
+$border-radius-button: 8px;
+$border-radius-tooltip: 10px;
+
+.container {
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-card;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+              0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  font-family: $font-family;
+}
+
+.header {
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-title;
+  line-height: 28px;
+  letter-spacing: -0.44px;
+  margin: 0;
+}
+
+.meta {
+  margin-bottom: 16px;
+}
+
+.period {
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-text-secondary;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  margin: 0;
+}
+
+.legend {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.legendButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: $border-radius-button;
+  background: $color-bg-inactive;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.legendButtonActive {
+  composes: legendButton;
+  background: var(--active-bg);
+  opacity: 1;
+
+  .dot {
+    background: #ffffff;
+  }
+
+  .label {
+    color: #ffffff;
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot-color);
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-muted;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.chartContainer {
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+.customTooltip {
+  position: absolute;
+  background: $color-bg-card;
+  border: 1px solid $color-border-tooltip;
+  border-radius: $border-radius-tooltip;
+  padding: 10px 16px;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  margin-top: -15px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+
+  // Border arrow (behind)
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 9px 7px 0 7px;
+    border-style: solid;
+    border-color: $color-border-tooltip transparent transparent transparent;
+  }
+
+  // Fill arrow (in front)
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 7px 5px 0 5px;
+    border-style: solid;
+    border-color: $color-bg-card transparent transparent transparent;
+  }
+}
+
+.tooltipDate {
+  font-family: $font-family-pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text-dark;
+  line-height: normal;
+  margin: 0;
+}
+
+.tooltipContent {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tooltipDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tooltip-color);
+  flex-shrink: 0;
+}
+
+.tooltipLabel {
+  font-family: $font-family-pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-dark;
+  line-height: normal;
+}
