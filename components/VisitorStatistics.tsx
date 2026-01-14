@@ -106,13 +106,22 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
     value: 0,
     color: '',
   });
+
+  const hexToRgba = (hex: string, opacity: number): string => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  };
+
   const chartData: ChartData<'bar'> = {
     labels,
     datasets: [
       {
         label: activeData?.label || '',
         data: activeData?.data || [],
-        backgroundColor: createGradient(activeData?.color || '#4e84f0'),
+        backgroundColor: activeData?.color || '#4e84f0',
+        hoverBackgroundColor: hexToRgba(activeData?.color || '#4e84f0', 0.8),
         borderRadius: {
           topLeft: 4,
           topRight: 4,
@@ -155,6 +164,16 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
   const chartOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
+    interaction: {
+      mode: 'nearest',
+      intersect: true,
+    },
+    onHover: (event, elements) => {
+      const canvas = event.native?.target as HTMLCanvasElement;
+      if (canvas) {
+        canvas.style.cursor = elements.length > 0 ? 'pointer' : 'default';
+      }
+    },
     plugins: {
       legend: {
         display: false,
@@ -162,6 +181,11 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
       tooltip: {
         enabled: false,
         external: externalTooltipHandler,
+      },
+    },
+    elements: {
+      bar: {
+        hoverBackgroundColor: hexToRgba(activeData?.color || '#4e84f0', 0.8),
       },
     },
     scales: {
@@ -201,11 +225,6 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
       },
     },
   };
-
-  function createGradient(color: string): string {
-    // Return solid color - gradient will be handled via Chart.js canvas gradient if needed
-    return color;
-  }
 
   return (
     <div className={styles.container}>
