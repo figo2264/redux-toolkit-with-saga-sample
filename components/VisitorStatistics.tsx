@@ -120,7 +120,8 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
       {
         label: activeData?.label || '',
         data: activeData?.data || [],
-        backgroundColor: activeData?.color || '#4e84f0',
+        backgroundColor: createGradient(activeData?.color || '#4e84f0'),
+        // backgroundColor: activeData?.color || '#4e84f0',
         hoverBackgroundColor: hexToRgba(activeData?.color || '#4e84f0', 0.8),
         borderRadius: {
           topLeft: 4,
@@ -164,15 +165,12 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
   const chartOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
-    interaction: {
-      mode: 'nearest',
-      intersect: true,
-    },
-    onHover: (event, elements) => {
-      const canvas = event.native?.target as HTMLCanvasElement;
-      if (canvas) {
-        canvas.style.cursor = elements.length > 0 ? 'pointer' : 'default';
-      }
+    transitions: {
+      active: {
+        animation: {
+          duration: 0,
+        },
+      },
     },
     plugins: {
       legend: {
@@ -181,11 +179,6 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
       tooltip: {
         enabled: false,
         external: externalTooltipHandler,
-      },
-    },
-    elements: {
-      bar: {
-        hoverBackgroundColor: hexToRgba(activeData?.color || '#4e84f0', 0.8),
       },
     },
     scales: {
@@ -225,6 +218,11 @@ const VisitorStatistics: React.FC<VisitorStatisticsProps> = ({
       },
     },
   };
+
+  function createGradient(color: string): string {
+    // Return solid color - gradient will be handled via Chart.js canvas gradient if needed
+    return color;
+  }
 
   return (
     <div className={styles.container}>
