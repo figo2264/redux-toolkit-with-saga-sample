@@ -1,0 +1,6 @@
+@use '../../styles/scss/abstracts/variables' as *;
+@use '../../styles/scss/abstracts/mixins' as *;
+
+.emptyState {
+  @include font(1.6rem, 400, var(--gray_3), normal);
+}

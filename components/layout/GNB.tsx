@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import NotificationPanel from './NotificationPanel';
 
 interface GNBProps {
   className?: string;
 }
 
 const GNB: React.FC<GNBProps> = ({ className }) => {
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+
   return (
     <div className={`header-container ${className || ''}`}>
       <header>
@@ -13,6 +16,12 @@ const GNB: React.FC<GNBProps> = ({ className }) => {
         </div>
         <div className="header-right-area">
           <div className="button-box">
+            <button
+              type="button"
+              className="btn-alarm active"
+              title="알림"
+              onClick={() => setIsNotificationOpen(prev => !prev)}
+            ></button>
             <button type="button" className="btn-service active" title="서비스 이동"></button>
           </div>
           <div className="divider"></div>
@@ -25,6 +34,10 @@ const GNB: React.FC<GNBProps> = ({ className }) => {
           </div>
         </div>
       </header>
+      <NotificationPanel
+        isOpen={isNotificationOpen}
+        onClose={() => setIsNotificationOpen(false)}
+      />
     </div>
   );
 };

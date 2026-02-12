@@ -1,0 +1,48 @@
+@use '../../styles/scss/abstracts/variables' as *;
+@use '../../styles/scss/abstracts/mixins' as *;
+
+.topArea {
+  position: sticky;
+  top: 0;
+  @include flex(row, space-between, center);
+  margin: 0 3rem;
+  padding: 4rem 0 2.8rem 0;
+  border-bottom: 0.1rem solid var(--border);
+  background-color: var(--white);
+  z-index: $filterTop;
+}
+
+.title {
+  @include font(1.8rem, 700, var(--gray_900), normal);
+}
+
+.actions {
+  @include flex(row, flex-end, center);
+  gap: 0.8rem;
+}
+
+.btnOutline {
+  border: 0.1rem solid var(--border);
+  border-radius: 0.4rem;
+  padding: 0.3rem 1.6rem;
+  @include font(1.4rem, 500, var(--gray_900), normal);
+  background-color: var(--white);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--gray_50);
+  }
+}
+
+.btnSetting {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
