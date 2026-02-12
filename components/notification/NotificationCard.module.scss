@@ -1,0 +1,112 @@
+@use '../../styles/scss/abstracts/variables' as *;
+@use '../../styles/scss/abstracts/mixins' as *;
+
+.card {
+  @include flex(column, flex-start, stretch);
+  gap: 1rem;
+  padding: 1.6rem;
+  background-color: var(--gray_5);
+  border-radius: 1.6rem;
+}
+
+.cardHeader {
+  @include flex(row, space-between, flex-start);
+  gap: 0.8rem;
+}
+
+.titleLeft {
+  @include flex(row, flex-start, center);
+  flex-wrap: nowrap;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.avatarArea {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatarIcon {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.unreadDot {
+  position: absolute;
+  top: -0.1rem;
+  right: -0.1rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--red_500);
+}
+
+.title {
+  @include font(1.6rem, 700, var(--gray_900), 1.8);
+  white-space: nowrap;
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--gray_4);
+}
+
+.workspace {
+  @include font(1.4rem, 500, var(--gray_2), 1.8);
+  white-space: nowrap;
+  @include ellipsis();
+}
+
+.btnClose {
+  flex-shrink: 0;
+  @include flex(row, center, center);
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background: url('/styles/images/icon/ic_close.svg') no-repeat center;
+}
+
+.messageArea {
+  @include flex(column, flex-start, flex-start);
+  gap: 0.4rem;
+
+  p {
+    @include font(1.4rem, 400, var(--gray_2), 1.8);
+    word-break: break-word;
+  }
+}
+
+.clamped {
+  @include multi-ellipsis(true, 2);
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.toggleBtn {
+  padding: 0;
+  border: none;
+  background: none;
+  @include font(1.4rem, 500, var(--gray_3), 1.8);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.timestamp {
+  @include font(1.4rem, 500, var(--gray_3), 1.8);
+}

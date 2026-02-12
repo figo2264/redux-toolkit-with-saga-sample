@@ -4,6 +4,10 @@
 .panel {
   overflow-y: auto;
   overscroll-behavior: none;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
   position: fixed;
   top: $header-top;
   right: -50rem;
@@ -25,6 +29,11 @@
 .contentArea {
   flex: 1;
   @include flex(column, center, center);
+}
+
+.hasContent {
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .overlay {

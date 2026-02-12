@@ -1,0 +1,23 @@
+@use '../../styles/scss/abstracts/variables' as *;
+@use '../../styles/scss/abstracts/mixins' as *;
+
+.body {
+  @include flex(column, flex-start, stretch);
+  gap: 1.6rem;
+  padding: 2.8rem 3rem 0;
+}
+
+.sectionTitle {
+  @include font(1.8rem, 700, var(--gray_900), 1.8);
+}
+
+.cardList {
+  @include flex(column, flex-start, stretch);
+  gap: 1.6rem;
+}
+
+.footer {
+  @include font(1.6rem, 400, var(--gray_3), 1.8);
+  text-align: center;
+  padding: 2.4rem 0 4rem;
+}

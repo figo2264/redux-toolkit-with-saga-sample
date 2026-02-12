@@ -24,6 +24,7 @@
 .btnOutline {
   border: 0.1rem solid var(--border);
   border-radius: 0.4rem;
+  height: 3.1rem;
   padding: 0.3rem 1.6rem;
   @include font(1.4rem, 500, var(--gray_900), normal);
   background-color: var(--white);
@@ -45,4 +46,5 @@
   border: none;
   background: none;
   cursor: pointer;
+  background: url('/styles/images/icon/ic_setting.svg') no-repeat center;
 }

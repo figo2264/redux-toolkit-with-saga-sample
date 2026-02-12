@@ -1,0 +1,59 @@
+@use '../../styles/scss/abstracts/variables' as *;
+@use '../../styles/scss/abstracts/mixins' as *;
+
+.filterRow {
+  @include flex(row, space-between, center);
+  //gap: 0.6rem;
+}
+
+.chipList {
+  @include flex(row, flex-start, center);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  position: relative;
+  padding: 0.4rem 1.6rem;
+  border-radius: 5rem;
+  border: 0.1rem solid var(--border);
+  background-color: var(--white);
+  @include font(1.4rem, 500, var(--gray_2), 1.8);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+
+.chipActive {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--hover);
+}
+
+.hasUnread {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background-color: var(--red_500);
+  }
+}
+
+.expandBtn {
+  flex-shrink: 0;
+  @include flex(row, center, center);
+  width: 3.3rem;
+  height: 3.3rem;
+  border-radius: 50%;
+  border: 0.1rem solid var(--border);
+  cursor: pointer;
+  background: none;
+  background: url('/styles/images/icon/ic_arrow_down_gray.svg') no-repeat center;
+}

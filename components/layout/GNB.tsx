@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import NotificationPanel from './NotificationPanel';
+import NotificationPanel from '../notification/NotificationPanel';
+import NotificationBody from '../notification/NotificationBody';
+import { DUMMY_SECTIONS, FILTER_TABS } from '../notification/notificationDummyData';
 
 interface GNBProps {
   className?: string;
@@ -37,7 +39,9 @@ const GNB: React.FC<GNBProps> = ({ className }) => {
       <NotificationPanel
         isOpen={isNotificationOpen}
         onClose={() => setIsNotificationOpen(false)}
-      />
+      >
+        <NotificationBody sections={DUMMY_SECTIONS} filterTabs={FILTER_TABS} />
+      </NotificationPanel>
     </div>
   );
 };
