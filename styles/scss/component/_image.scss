@@ -1,0 +1,11 @@
+.image-wrapper {
+  overflow: hidden;
+
+  &.is-focusable > img {
+    transition: transform .2s cubic-bezier(.165, .84, .44, 1), -webkit-transform .2s cubic-bezier(.165, .84, .44, 1);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

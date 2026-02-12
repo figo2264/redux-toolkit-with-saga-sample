@@ -1,0 +1,65 @@
+.popup-upload-container {
+  z-index: 11;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+  // padding: 2rem 3rem 0;
+  width: 44rem;
+  border-radius: 0.8rem 0.8rem 0 0;
+  background-color: var(--white);
+  box-shadow: 0 0.4rem 1rem 0 rgba(var(--gray_1), 0.2);
+
+  &.show {
+    display: block;
+  }
+
+  &.open {
+    .btn-chervron {
+      transform: rotate(0deg);
+    }
+
+    .popup-upload-content {
+      display: block;
+    }
+  }
+
+  .popup-upload-header {
+    @include flex(row, space-between, center);
+    padding: 2rem 3rem;
+    border-bottom: 0.1rem solid var(--border);
+
+    .popup-upload-title {
+      @include flex(row, flex-start, center);
+      @include font(1.6rem, 700, var(--black), 2.88rem);
+    }
+
+    .header-util-box {
+      @include flex(row, flex-start, center);
+
+      > span {
+        display: block;
+        width: 2.2rem;
+
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+
+        > button {
+          margin-right: 0;
+        }
+      }
+
+      button:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .popup-upload-content {
+    display: none;
+    overflow-y: auto;
+    max-height: 30rem;
+    padding: 2rem 3rem 2rem 3rem;
+  }
+}

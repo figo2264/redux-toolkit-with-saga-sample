@@ -1,0 +1,190 @@
+.join-container {
+  @include flex(row, center, center);
+  height: calc(100vh - 20.2rem);
+  // min-height: 50vh;
+  // overflow-y: scroll;
+
+  .field-container {
+    margin-bottom: 0;
+  }
+
+  .join-popup-container {
+    overflow-y: auto;
+    min-width: 52rem;
+    max-height: 74vh;
+    padding: 4rem 0;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--border);
+    background: var(--white);
+  }
+
+  .join-top-area {
+    padding: 0 4rem;
+    @include font(2.4rem, 700, var(--black), 180%);
+  }
+
+  .join-middle-area {
+    padding: 0 4rem;
+    margin: 4rem 0;
+    // max-height: 60rem;
+    overflow-y: auto;
+  }
+
+  .join-bottom-area {
+    .btn {
+      margin: 0 auto;
+      width: 21.6rem;
+    }
+  }
+}
+
+.field-box {
+  margin-bottom: 1.6rem;
+
+  .field-form {
+    &.result {
+      input {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .field:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  &.field-email-box {
+    .field {
+      margin-bottom: 0.8rem;
+
+      .field-form {
+        @include flex(row, flex-start, flex-start);
+      }
+
+      input[type='text'] {
+        width: 46.2rem;
+      }
+
+      .btn-certification {
+      }
+
+      .button-box {
+        margin-left: 0.8rem;
+
+        button {
+          width: 13rem;
+
+          &.btn-send {
+            background: rgba(221, 223, 228, 0.5);
+            color: var(--gray_1);
+          }
+
+          &.btn-check {
+            background-color: var(--gray_3);
+            color: var(--white);
+
+            &.complete {
+              background-color: var(--primary);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 20240919 이용약관 추가 */
+.terms-privacy-policy-container {
+  margin: 0 4rem 4rem 4rem;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  background-color: var(--gray_5);
+
+  &.no-margin {
+    margin: 4rem 0 0 0;
+  }
+
+  .title {
+    @include font(1.6rem, 600, var(--gray_1));
+    margin-bottom: 1.6rem;
+  }
+
+  .terms-privacy-list-box {
+    .terms-privacy-list {
+      @include flex(row, space-between, center);
+
+      &.border {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--gray_4);
+      }
+
+      a {
+        @include font(1.4rem, 600, var(--gray_2));
+        text-decoration: underline;
+      }
+
+      .field-group {
+        label {
+          @include font(1.6rem, 500, var(--gray_2));
+          line-height: initial;
+
+          &:before {
+            content: '';
+            margin-right: 0.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.join-complete-account-container {
+  width: 68rem;
+  padding: 6rem 4rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--gray_4);
+  background: var(--white);
+  text-align: center;
+
+  .profile-box {
+    position: relative;
+    margin: 0 auto;
+    width: 20rem;
+    height: 20rem;
+    margin-bottom: 4rem;
+
+    .profile-assets {
+      @include flex(row, center, center);
+      width: 20rem;
+      height: 20rem;
+
+      span {
+        font-size: 12rem;
+        // line-height: 21rem;
+      }
+    }
+  }
+
+  .complete-text {
+    margin-bottom: 2.8rem;
+    @include font(2.8rem, 700, var(--gray_1), 180%);
+  }
+
+  .complete-guide-text {
+    @include font(1.8rem, 500, var(--gray_2), 180%);
+  }
+
+  .complete-button-box {
+    margin-top: 2.8rem;
+
+    button {
+      width: 21.6rem;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,183 @@
+.popup-item-move {
+  .file-move-box {
+    .file-tree-container {
+      overflow: hidden;
+      padding: 0rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      border: 0.1rem solid var(--border);
+      background: var(--white);
+
+      .file-tree-body {
+        height: 30rem;
+        overflow-y: auto;
+      }
+    }
+
+    .file-tree-head {
+      .team-name {
+        padding: 0 2rem;
+        @include font(1.6rem, 600, var(--gray_1), 5.2rem);
+
+        &.disabled {
+          opacity: 0.3;
+        }
+
+        &.selected {
+          background-color: var(--hover);
+          color: var(--primary);
+        }
+      }
+    }
+
+    .tree-structure {
+      position: relative;
+      min-width: min-content;
+
+      > .depth-wrap {
+        > .file-name {
+          > .depth-name {
+            font-size: 1.6rem !important;
+            font-weight: 500 !important;
+            color: var(--gray_1) !important;
+          }
+        }
+      }
+
+      .depth-wrap {
+        &:not(.tree-structure > .depth-wrap) {
+          display: none;
+          // position: relative;
+          padding-left: 2rem;
+        }
+
+        // &.active {
+        //   > .file-name {
+        //     > .depth-wrap {
+        //       display: block !important;
+        //     }
+        //   }
+        // }
+
+        .file-name {
+          &:not(.has-child) {
+            > .menu-box {
+              .btn-expand {
+                display: none;
+              }
+            }
+          }
+
+          min-width: 27.2rem;
+
+          .menu-box {
+            position: relative;
+            z-index: 2;
+          }
+
+          .btn-expand {
+            display: block;
+            position: absolute;
+            top: 1.6rem;
+            left: 2rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: 0.1rem solid var(--border);
+            background: var(--white) url('/styles/images/icon/ic_arrow_circle_20.svg') no-repeat -2px -2px / 22px;
+            transform: rotate(0);
+
+            &:disabled {
+              opacity: 0.3;
+            }
+          }
+
+          .depth-name {
+            display: block;
+            width: fit-content;
+            max-width: 32rem;
+            height: 5.2rem;
+            padding-left: 4.8rem;
+            padding-right: 3rem;
+            @include font(1.4rem, 500, var(--gray_3), 5.2rem);
+            @include ellipsis();
+            cursor: pointer;
+          }
+
+          &.active {
+            > .menu-box {
+              .btn-expand {
+                transform: rotate(180deg);
+              }
+            }
+
+            > .depth-wrap {
+              display: block !important;
+            }
+          }
+
+          &.selected {
+            &:before {
+              content: '';
+              position: absolute;
+              // top: 0;
+              left: 0;
+              right: 0;
+              height: 5.2rem;
+              background-color: var(--hover);
+              z-index: 1;
+            }
+
+            > .menu-box {
+              .btn-expand {
+                border: none;
+                background: url('/styles/images/icon/ic_arrow_circle_20_active.svg') no-repeat center / 22px;
+                transform: rotate(180deg);
+              }
+
+              .depth-name {
+                display: block;
+                // background: var(--hover);
+                color: var(--primary) !important;
+                font-weight: 600 !important;
+                // &:before {
+                //   content: '';
+                //   display: inline-block;
+                //   width: 20px;
+                //   height: 20px;
+                //   background: url('/styles/images/icon/ic_arrow_circle_20_active.svg') no-repeat;
+                // }
+              }
+            }
+
+            &.active {
+              > .menu-box {
+                .btn-expand {
+                  transform: rotate(0);
+                }
+              }
+            }
+          }
+
+          &.disabled {
+            &:before {
+              display: none;
+            }
+
+            > .menu-box {
+              .depth-name {
+                color: var(--gray_3) !important;
+                font-weight: 500;
+                opacity: 0.3;
+              }
+            }
+          }
+        }
+      }
+
+      // .depth-wrap
+    }
+
+    // .tree-structure
+  }
+}

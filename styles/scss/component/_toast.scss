@@ -1,0 +1,48 @@
+.Toastify__toast-container {
+  min-width: 50rem;
+  padding: 0;
+
+  &.Toastify__toast-container--bottom-left {
+    left: 4rem;
+  }
+
+  &.Toastify__toast-container--bottom-right {
+    right: 4rem;
+  }
+
+  .Toastify__toast {
+    margin-bottom: 1rem;
+    padding: 1rem 1.6rem;
+    padding-left: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include font(1.6rem, 700, var(--gray_2), 180%);
+
+    &.Toastify__toast--info {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    &.Toastify__toast--success {
+      background: var(--green_500);
+      color: var(--white);
+    }
+
+    &.Toastify__toast--warning {
+      background: var(--yellow_500);
+      color: var(--white);
+    }
+
+    &.Toastify__toast--error {
+      background: var(--red_500);
+      color: var(--white);
+    }
+
+    .Toastify__toast-body {
+      padding: 0;
+    }
+  }
+}

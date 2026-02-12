@@ -1,0 +1,25 @@
+.refresh-box {
+  @include flex(row, center, center);
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
+.refresh-icon {
+  @include flex(row, center, center);
+  background-color: var(--primary);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50rem;
+}
+
+.refresh-icon:hover {
+  animation: rotate_image 2s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(-360deg);
+  }
+}

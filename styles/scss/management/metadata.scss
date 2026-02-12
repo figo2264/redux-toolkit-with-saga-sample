@@ -1,0 +1,546 @@
+.metadata-dropdown {
+  width: 44rem;
+}
+
+.metadata-content-top-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  height: 2.5rem;
+  margin-bottom: 1.2rem;
+
+  .metadata-title-info {
+    margin-top: 0.5rem;
+  }
+}
+
+.metadata-mng-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  .context-menu {
+    z-index: 22;
+    position: absolute;
+    width: 9rem;
+    border-radius: 0.4rem;
+    background: var(--white);
+    box-shadow: var(--shadow-dark);
+
+    &.show {
+      display: block;
+    }
+
+    li {
+      @include flex(row, flex-start, center);
+      width: 100%;
+      height: 4.4rem;
+      //@include font(1.4rem, 400, var(--gray_3), 2.53rem);
+
+      &:hover {
+        background: var(--hover);
+        font-weight: 600;
+      }
+
+      &:hover button {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      button {
+        flex: 1;
+        @include flex(row, space-between, center);
+        width: auto;
+        height: 100%;
+        padding: 0 1.6rem;
+        @include font(1.4rem, 400, var(--gray_3), 180%);
+        text-align: left;
+      }
+    }
+  }
+}
+
+.metadata-empty {
+  margin-top: 3rem;
+  height: calc(100vh - 350px);
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--gray_3);
+}
+
+// 내용
+.metadata-mng-area {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100vh - 330px);
+  border-radius: 0.4rem;
+  margin-top: 3rem;
+
+  .metadata-mng-card {
+    width: calc(100% / 4);
+    height: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--gray_4);
+
+    &.settings {
+      width: calc(100% / 2) !important;
+    }
+
+    > .card-header {
+      display: flex;
+      height: 4.4rem;
+      background: var(--gray_5);
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gray_4);
+
+      > .title-area {
+        display: flex;
+        color: var(--gray_1);
+        font-weight: 700;
+        font-size: 1.4rem;
+        padding-left: 1.6rem;
+        align-items: center;
+      }
+
+      > .button-box {
+        margin-right: 1rem;
+
+        .btn {
+          background-color: white;
+        }
+
+        .sub-element {
+          width: 109px;
+          height: 31px;
+          border-radius: 4px;
+          border: 1px solid var(--gray_4);
+          letter-spacing: 0;
+          @include font(14px, 500, var(--gray_1), normal);
+          padding: 0;
+        }
+      }
+    }
+
+    > .card-contents {
+      height: calc(100% - 4.4rem - 80px);
+      width: 100%;
+
+      .empty-txt {
+        height: 100%;
+        top: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--gray_3);
+      }
+    }
+
+    > .btn-area {
+      border-top: 0.1rem solid var(--border);
+      display: flex;
+      justify-content: center;
+      bottom: 0;
+      height: 80px;
+      width: 100%;
+      align-items: center;
+
+      .btn-add {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 216px;
+        height: 40px;
+        border-radius: 8px;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        line-height: 16.71px;
+
+        .icon-add {
+          width: 16px;
+          height: 16px;
+          margin-right: 6px;
+          background: url('/styles/images/icon/ic_add_primary.svg') no-repeat center;
+        }
+
+        .btn-add-txt {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .btn-setting {
+      display: flex;
+
+      .btn {
+        width: 120px;
+        height: 40px;
+        font-size: 14px !important;
+      }
+
+      .delete {
+        border: 1px solid var(--border);
+        color: var(--gray_1);
+      }
+
+      .save {
+        background-color: var(--primary);
+      }
+    }
+
+
+  }
+}
+
+.metadata-mng-card + .metadata-mng-card {
+  border-left: none;
+}
+
+.drop-target {
+  border-bottom: 1px solid var(--primary);
+}
+
+.rc-tree-list-holder-inner {
+  .rc-tree-title + div {
+    display: none !important;
+  }
+}
+
+.metadata-list {
+  position: relative;
+  //min-width: min-content;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  scrollbar-width: thin;
+  width: 100%;
+  max-width: 100%;
+
+
+  .metadata-list-item {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    height: 48px;
+    border-bottom: 1px solid var(--line);
+
+    &.sub-element {
+      .metadata-item-name {
+        padding-left: 40px;
+      }
+    }
+
+    &.has-child {
+      .metadata-item-name {
+        &:before {
+          content: "";
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          margin-right: 0.5rem;
+          vertical-align: middle;
+          background: url('/styles/images/icon/ic_folder_arrow_down.svg') no-repeat center / 100% auto !important;
+        }
+      }
+    }
+
+    &.has-child.expand {
+      .metadata-item-name {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &.has-child.active {
+      .metadata-item-name {
+        &:before {
+          background: url('/styles/images/icon/ic_folder_arrow_down_active.svg') no-repeat center / 100% auto !important;
+        }
+      }
+    }
+
+    .menu-box {
+      width: 100%;
+      height: 48px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    &:hover {
+      background: var(--hover);
+      font-weight: 600;
+    }
+
+    .metadata-item-name {
+      color: var(--gray_3);
+      font-size: 1.4rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 85%;
+      display: block;
+    }
+
+    &.selected {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 48px;
+        background-color: var(--hover);
+        z-index: 1;
+      }
+
+      .metadata-item-name {
+        display: block;
+        color: var(--primary) !important;
+        font-weight: 600 !important;
+      }
+    }
+  }
+}
+
+.metadata-settings {
+  color: var(--gray_1);
+  font-size: 1.4rem;
+  padding: 10px 20px 0 20px;
+  position: relative;
+  min-width: min-content;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+
+  .system-metadata {
+    align-content: center;
+    text-align: center;
+    background-color: var(--gray_5);
+    height: 165px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 180%;
+    font-weight: 500;
+    color: var(--gray_1);
+    margin-bottom: 1rem;
+  }
+
+  .field-container {
+    margin-bottom: 0;
+  }
+
+  .text-count-wrap .number {
+    font-size: 1.2rem;
+  }
+
+  .card-contents {
+    height: calc(100% - 4.4rem - 80px);
+  }
+
+  .field-input-text label {
+    font-weight: 500;
+  }
+
+  .group-label {
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+
+    &.required {
+      &:after {
+        content: '*';
+        margin-left: 0.4rem;
+        @include font(1.4rem, 500, var(--red_error_500), 2rem);
+      }
+    }
+  }
+
+  .field-area {
+    //margin-bottom: 1rem;
+
+    .input-box > input {
+      font-size: 14px !important;
+    }
+
+    .error {
+      .date-container {
+        input {
+          border-color: var(--red_error_500);
+        }
+      }
+
+      .input-box {
+        border-color: var(--red_error_500);
+      }
+    }
+
+    .field-input-radio-button {
+      > label {
+        white-space: break-spaces;
+        align-items: flex-start;
+      }
+
+      > label:before {
+        width: 18px;
+        height: 18px;
+      }
+
+      > input {
+        &:checked {
+          + label {
+            &:after {
+              top: 4px;
+              left: 4px;
+              width: 10px;
+              height: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .dropdown {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 44px;
+
+      .field {
+        margin: unset !important;
+      }
+
+      .context-menu {
+        width: unset !important;;
+      }
+
+      .arrow-right-icon {
+        margin: 0 0.6rem 0 0.6rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+    }
+  }
+
+  .field-sub-area {
+    margin-bottom: 1rem;
+    padding: 1rem 1rem 0 1rem;
+    background-color: var(--gray_5);
+
+    .field-group {
+      padding-bottom: 1rem;
+    }
+  }
+
+  .is-enabled {
+    margin-bottom: 1rem;
+  }
+
+  .radio-group-area {
+    margin-bottom: 1.5rem;
+
+    .field {
+      > label {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
+  .max-length-limit {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+
+    .field-input-text {
+      width: 195px;
+    }
+
+    > label {
+      margin-bottom: 17px;
+      margin-left: 1rem;
+    }
+
+    .field {
+      > label {
+        color: var(--gray_1) !important;
+      }
+    }
+
+  }
+
+  .multilingual-area {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  .metadata-label-box-group {
+    padding-bottom: 1rem;
+
+    .metadata-label-box {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+
+      .field {
+        margin-bottom: unset !important;
+      }
+
+      .field-input-text {
+        width: 88%;
+      }
+
+      > button {
+        width: 4rem;
+        height: 4rem;
+        margin-left: 0.5rem;
+        //margin-bottom: 0.75rem;
+
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.6rem;
+      }
+    }
+  }
+
+  // number input hover시 화살표 버튼 제거
+  // Chrome, Safari, Edge, Opera에서 화살표제거
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  // Firefox에서 화살표 제거
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.field-container metadata {
+  margin-bottom: 0;
+}
+
+.metadata .field-area .error .input-box {
+  border-color: var(--red_error_500);
+}
+

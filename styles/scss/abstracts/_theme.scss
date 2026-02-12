@@ -1,0 +1,128 @@
+:root {
+  --radius-lg: 2rem;
+  --radius: 0.8rem;
+  --radius-sm: 0.6rem;
+
+
+  body.hyundai {
+    --radius-lg: 0.6rem;
+    --radius: 0.2rem;
+    --radius-sm: 0.1rem;
+
+    /* Gray */
+    --gray_900: rgb(26, 26, 32); /* #1A1A20 */
+    --gray_800: rgb(36, 39, 46); /* #24272E */
+    --gray_700: rgb(73, 73, 76); /* #49494C */
+    --gray_600: var(--gray_2);
+    --gray_500: var(--gray_3);
+    --gray_400: var(--gray_3);
+    --gray_300: var(--gray_3);
+    --gray_200: var(--gray_4);
+    --gray_100: var(--gray_4);
+    --gray_85: rgb(239, 239, 243); /* #EFEFF3 */
+    --gray_75: rgb(239, 239, 243); /* #EFEFF3 */
+    --gray_50: rgb(248, 249, 252); /* #f7f7f7 */
+    // to replace to 25
+    --gray_25: var(--gray_5);
+
+    --gray_1: rgb(73, 73, 76); /* #49494c */
+    --gray_2: rgb(108, 109, 120); /* #6c6d78 */
+    --gray_3: rgb(136, 138, 145); /* #888A91 */
+    --gray_4: rgb(221, 223, 228); /* #dddfe4 */
+    --gray_5: rgb(248, 249, 252); /* #F8F9FC */
+
+    --gray_3-opacity-10: rgba(136, 138, 145, 0.1);
+    --gray_3-opacity-50: rgba(136, 138, 145, 0.5);
+    --gray_3-opacity-70: rgba(136, 138, 145, 0.7);
+    --gray_4-opacity-50: rgba(221, 223, 228, 0.5);
+    --gray_5-opacity-30: rgba(248, 249, 252, 0.3); // readonly
+
+    /* Yellow */
+    --yellow_500: rgb(255, 191, 67); /* #ffbf43 */
+    --yellow_50: rgb(255, 245, 227); /* #fff5e3 */
+
+    --yellow_500-opacity-50: rgba(255, 191, 67, 0.5);
+
+    /* Red */
+    --red_500: rgb(255, 93, 93); /* #f25130 */
+
+    /* Red Soft (Alert style) */
+    --red_soft_500: rgb(255, 93, 93); /* #FF5D5D */
+    --red_soft_100: rgb(255, 231, 231); /* #FFE7E7 */
+    --red_soft_50: rgb(255, 231, 231); /* #FFE7E7 */
+
+    --red_soft_500-opacity-20: rgba(255, 93, 93, .2);
+    --red_soft_500-opacity-50: rgba(255, 93, 93, .5);
+
+    /* Red Error */
+    --red_error_500: rgb(255, 93, 93); /* #FF5D5D */
+    --red_error_100: rgb(255, 231, 231); /* #FFE7E7 */
+
+    /* Green */
+    --green_50: rgb(221, 245, 236); /* #ddf5ec */
+    --green_400: rgb(48, 196, 80); /* #30C450 */
+    --green_500: rgb(48, 196, 80); /* #30C450 */
+    --green_600: rgb(48, 196, 80); /* #30C450 */
+
+    /* Base Purple - Primary */
+    --purple_300: rgb(186, 137, 235); /* #ba89eb */
+    --purple_400: rgb(156, 93, 255); /* #9c5dff */
+    --purple_500: rgb(156, 93, 255); /* #8b80ff */
+    // hue 기준 blue에 가까움
+
+    /* Opacity variants */
+    --purple_400-opacity-15: rgba(156, 93, 255, 0.15);
+    --purple_500-opacity-20: rgba(156, 93, 255, 0.2);
+
+    /* Blue - Primary Scale */
+    --blue_900: rgb(21, 25, 32); /* #15191F */
+    --blue_600: rgb(1, 34, 74); /* #495A88 */
+    --blue_550: rgb(8, 50, 98); /* #4e84f0 */
+    // 필요없음, 주의
+    --blue_500: rgb(0, 44, 95); /* #002C5F */
+    --blue_400: rgb(30, 97, 150); /* #1E6196 */
+    // 원래보다 더 밝고 파란 느낌으로
+    --blue_300: rgb(87, 123, 185); /* #577BB9 */
+    // 더 밝은 느낌 추가
+    --blue_200: rgb(173, 198, 239); /* #ADC6EF */
+    // 원래보다 더 밝은 느낌
+    --blue_100: rgb(207, 225, 251); /* #CFE1FB */
+    // 좀 더 빈티지한 느낌
+    --blue_60: rgb(238, 242, 252); /* #EEF2FC */
+    --blue_50: rgb(241, 243, 249); /* #F1F3F9 */
+    --blue_30: rgb(246, 248, 253); /* #F6F8FD */
+
+    /* Opacity Variants (from 500) */
+    --blue_500-opacity-05: rgba(78, 132, 240, 0.05);
+    --blue_500-opacity-10: rgba(78, 132, 240, 0.1);
+    --blue_500-opacity-15: rgba(78, 132, 240, 0.15);
+    --blue_500-opacity-30: rgba(78, 132, 240, 0.3);
+
+    /* Opacity Variants (from 400) */
+    --blue_400-opacity-15: rgba(44, 174, 230, 0.15);
+    --blue_400-opacity-20: rgba(44, 174, 230, 0.2);
+
+    --white: rgb(255, 255, 255); /* #fff */
+    --black: var(--gray_900);
+    --primary: var(--blue_500); /* #4e84f0 */
+    --background: var(--blue_30); /* #f6f8fd */
+
+    --hover: var(--blue_500-opacity-10);
+    --hover-solid: rgb(231, 237, 251);
+    --readonly: var(--gray_5-opacity-30);
+    --shadow: 0px 4px 10px 0px rgba(189, 198, 235, 0.2);
+    --shadow-dark: 0px 4px 10px 0px rgba(10, 10, 10, 0.2);
+    --dim: rgba(0, 0, 0, 0.6);
+    --border: var(--gray_4);
+    --line: var(--gray_75);
+
+    --header-bg: var(--white);
+    --footer-bg: var(--blue_50);
+    --card-bg: var(--white);
+    --input-bg: var(--white);
+    --th-bg: var(--gray_5);
+    --td-bg: var(--white);
+
+    --collection-bg: #F6F3F2;
+  }
+}

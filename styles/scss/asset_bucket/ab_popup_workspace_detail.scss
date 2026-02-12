@@ -1,0 +1,57 @@
+.popup-revert {
+  .field-container {
+    margin-bottom: 4rem;
+    .field-area {
+      margin-bottom: 1.6rem;
+    }
+    textarea {
+      height: 140px;
+    }
+  }
+}
+
+.popup-description {
+  .field-container {
+    margin-bottom: 0;
+  }
+  .explain-wrap {
+    display: flex;
+    margin-bottom: 4rem;
+    @include font(1.6rem, 500, var(--gray_1), 25.2px);
+    .value {
+      margin-left: 2rem;
+    }
+  }
+  textarea {
+    height: 140px;
+  }
+}
+.header-subtitle {
+  .popup {
+    width: 500px;
+    position: relative;
+    padding: 4rem 3rem;
+    .popup-top {
+      display: block;
+
+      .popup-top-right {
+        position: absolute;
+        right: 3rem;
+        top: 4rem;
+      }
+      .top-sub-text {
+        margin-top: 4px;
+        @include font(1.6rem, 500, var(--gray_1), 2.8rem);
+      }
+    }
+  }
+}
+.popup-modify {
+  .field-container {
+    margin-bottom: 4rem;
+
+    textarea {
+      height: 140px;
+    }
+  }
+}

@@ -1,0 +1,226 @@
+.portal-filter-container {
+  padding: 0 20px;
+  width: 100%;
+  max-width: 29rem;
+  overflow-y: auto;
+}
+
+.filter-top-area {
+  @include flex(row, space-between, center);
+
+  .title {
+    margin-bottom: 0;
+    @include font(1.8rem, 700, var(--gray_900), normal);
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0.4rem;
+      background: url('/styles/images/icon/ic_filter.svg') no-repeat center;
+      vertical-align: middle;
+    }
+  }
+}
+
+.filter-middle-area {
+  height: 100%;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+}
+
+.filter-check-lists {
+  .filter-depth-1 {
+    margin-top: 1.2rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .filter-depth-2 {
+    display: none;
+    padding-left: 2rem;
+    margin-top: 1.2rem;
+
+    &.expand {
+      display: block;
+    }
+
+    .filter-list {
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  .filter-depth-3 {
+    display: none;
+    padding-left: 2rem;
+    margin-top: 1.2rem;
+
+    &.expand {
+      display: block;
+    }
+
+    .filter-list {
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  .filter-list {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.filter {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.search-box-result {
+  margin-top: 1.2rem;
+
+  .search-word {
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content !important;
+    min-height: 22px;
+    overflow-wrap: break-word;
+
+    &:after {
+      top: 0 !important;
+      height: 100% !important;
+    }
+  }
+}
+
+// 새로 추가해야할 사항
+.field-input-checkbox.minus input + label:before {
+  background: url('/styles/images/icon/ic_checkbox_minus.svg') no-repeat center;
+}
+
+// 새로 추가해야할 사항 ( 체크박스와 라벨 가운데 정렬 안되고있어서 추가함)
+// label {
+//   &:before {
+//     margin-top: 0.5rem;
+//     width: 18px !important;
+//     height: 18px !important;
+//   }
+// }
+
+.filter-bottom-area {
+  position: sticky;
+  bottom: 0;
+  width: 48.4rem;
+  z-index: $filterBottomArea;
+  padding: 2.8rem 3.6rem 4rem 3.6rem;
+  background-color: var(--white);
+
+  .button-box {
+    gap: 0.8rem;
+    width: 100%;
+    margin-left: 0;
+
+    button {
+      margin-right: 0;
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.filter-check-box-container {
+  .field {
+    &.field-input-checkbox {
+      input {
+        &:checked {
+          + label:after {
+            top: 0.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  //.filter-check-lists {
+  //  .filter-depth-1 {
+  //    margin-top: 2.8rem;
+  //
+  //    &:first-child {
+  //      margin-top: 0;
+  //    }
+  //
+  //    .filter-list {
+  //      margin-bottom: 2.8rem;
+  //    }
+  //  }
+  //
+  //  .filter-depth-2, .filter-depth-3, .filter-depth-4 {
+  //    display: none;
+  //    padding-left: 2rem;
+  //    margin-top: 1.4rem;
+  //
+  //    &.expand {
+  //      display: block;
+  //    }
+  //
+  //    .filter-list {
+  //      margin-bottom: 1.2rem;
+  //    }
+  //  }
+  //
+  //  .filter-list {
+  //    &:last-child {
+  //      margin-bottom: 0;
+  //    }
+  //  }
+  //
+    .filter-item {
+      position: relative;
+      @include flex(row, flex-start, center);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  //}
+
+  .field {
+    margin-bottom: 0;
+
+    label {
+      @include flex(row, flex-start, center);
+      margin-bottom: 0;
+      padding-right: 3rem;
+      @include font(1.6rem, 500, var(--gray_1), 1);
+
+      .elli {
+        @include ellipsis();
+      }
+    }
+  }
+
+  .count {
+    margin-left: 0.4rem;
+    @include font(1.4rem, 400, var(--gray_2), 180%);
+  }
+
+  .btn-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -1rem;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background: url('/styles/images/icon/ic_filter_arrow.svg') no-repeat center;
+    transform: rotate(-180deg);
+    transition: all 0.3s;
+
+    &.active {
+      transform: rotate(0);
+    }
+  }
+}

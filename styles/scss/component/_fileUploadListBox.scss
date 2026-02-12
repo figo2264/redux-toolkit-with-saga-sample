@@ -1,0 +1,172 @@
+.btn-chervron {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url('/styles/images/icon/ic_chevron-down.svg') no-repeat center;
+  transform: rotate(-180deg);
+  transition: all 0.2s ease;
+}
+
+.btn-close {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url('/styles/images/icon/ic_popup_upload_close.svg') no-repeat center;
+}
+
+.btn-delete {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url('/styles/images/icon/ic_popup_close_gray.svg') no-repeat center;
+}
+
+.btn-complete {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url('/styles/images/icon/ic_comm_check_active.svg') no-repeat center right / 2rem 2rem;
+}
+
+.file-upload-list-box {
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .file-upload-list-top {
+    @include flex(row, space-between, center);
+    gap: 0.6rem;
+  }
+}
+
+.file-upload-name-box {
+  @include flex(row, flex-start, center);
+  flex: 1 1 auto;
+  max-width: 81%;
+
+  .label {
+    @include flex(row, flex-start, center);
+    max-width: 100%;
+    @include font(1.6rem, 400, var(--gray_1), 2.4rem);
+
+    span {
+      @include font(1.6rem, 600, var(--gray_1), 2.4rem);
+      @include ellipsis();
+
+      &:first-child {
+        flex: 1 1 auto;
+        @include ellipsis();
+      }
+
+      &:last-child {
+        flex: 0 0 auto;
+      }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      flex: 0 0 2.4rem;
+      margin-right: 0.6rem;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    &.file {
+      &::before {
+        background: url('/styles/images/icon/ic_file-01.svg') no-repeat center;
+      }
+    }
+
+    &.folder {
+      &::before {
+        background: url('/styles/images/icon/ic_folder.svg') no-repeat center;
+      }
+    }
+
+    &.library {
+      display: block;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &.compression {
+      &::before {
+        background: url('/styles/images/icon/ic_layers-three.svg') no-repeat center;
+      }
+    }
+  }
+}
+
+.file-upload-until-box {
+  @include flex(row, flex-start, center);
+
+  .version {
+    margin-right: 0.6rem;
+    @include font(1.6rem, 700, var(--gray_1), 2.4rem);
+  }
+
+  span {
+    @include font(1.4rem, 400, var(--gray_1), 2.4rem);
+  }
+}
+
+.btn-retry {
+  @include flex(row, flex-start, center);
+  @include font(1.4rem, 400, var(--gray_1), 2.4rem);
+
+  &:hover {
+    &::after {
+      background: url('/styles/images/icon/ic_renew_sel.svg') no-repeat center;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url('/styles/images/icon/ic_renew.svg') no-repeat center;
+  }
+}
+
+.progress-bar-box {
+  position: relative;
+  margin-top: 1.2rem;
+  width: 100%;
+  height: 0.6rem;
+  border-radius: 1rem;
+  background: var(--gray_4);
+  overflow: hidden;
+
+  .cancle & {
+    opacity: 0.3;
+    background: var(--gray_4);
+  }
+
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: var(--primary);
+  }
+}
+
+.fail-msg {
+  margin-top: 8px;
+  @include font(1.4rem, 400, var(--red_500), 25px);
+}
+
+// @media (prefers-color-scheme: dark) {
+//   .btn-close {
+//     background: url('/styles/images/icon/ic_popup_upload_close_dark.svg') no-repeat center;
+//   }
+// }

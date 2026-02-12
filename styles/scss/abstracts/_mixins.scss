@@ -1,0 +1,182 @@
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 여러 줄(멀티 라인) 말줄임
+// @param $toggle-bool - 텍스트 생략 여부
+// @param $line-number - 노출할 텍스트의 줄 수
+
+@mixin multi-ellipsis($toggle-bool, $line-number) {
+  @if ($toggle-bool) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $line-number;
+    -webkit-box-orient: vertical;
+  } @else {
+    display: inherit;
+    overflow: visible;
+    -webkit-line-clamp: none;
+    -webkit-box-orient: unset;
+  }
+}
+
+@mixin font($size, $weight, $color, $height: 1) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: $height;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  // Set flex //
+  @if $direction==row {
+    flex-direction: row;
+  } @else if $direction==row-reverse {
+    flex-direction: row-reverse;
+  } @else if $direction==column {
+    flex-direction: column;
+  } @else if $direction==column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  // set justify-content //
+  @if $justify==flex-start {
+    justify-content: flex-start;
+  } @else if $justify==flex-end {
+    justify-content: flex-end;
+  } @else if $justify==center {
+    justify-content: center;
+  } @else if $justify==space-between {
+    justify-content: space-between;
+  } @else if $justify==space-around {
+    justify-content: space-around;
+  }
+
+  // set align-items //
+  @if $align==flex-start {
+    align-items: flex-start;
+  } @else if $align==flex-end {
+    align-items: flex-end;
+  } @else if $align==center {
+    align-items: center;
+  } @else if $align==stretch {
+    align-items: stretch;
+  } @else if $align==baseline {
+    align-items: baseline;
+  }
+}
+
+@mixin flex-grow($grow) {
+  flex-grow: $grow;
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin dropdownSize($size) {
+  .dropdown-container {
+    .dropdown-area {
+      @if $size == 'large' {
+        height: 4.8rem;
+      } @else if $size == 'medium' {
+        height: 4rem;
+      } @else if $size == 'small' {
+        height: 3.2rem;
+      }
+    }
+
+    .btn-dropdown,
+    .field-container {
+      @if $size == 'large' {
+        height: 4.8rem;
+      } @else if $size == 'medium' {
+        height: 4rem;
+      } @else if $size == 'small' {
+        height: 3.2rem;
+        padding: 0.6rem 1.6rem;
+        padding-right: 3.8rem;
+        line-height: 2rem;
+      }
+    }
+
+    .context-menu {
+      @if $size == 'large' {
+        max-height: 24.1rem;
+      } @else if $size == 'medium' or $size == 'small' {
+        max-height: 18.8rem;
+      }
+
+      .option {
+        button {
+          @if $size == 'large' {
+            height: 4.8rem;
+          } @else if $size == 'medium' {
+            height: 4rem;
+          } @else if $size == 'small' {
+            height: 4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin hiddentxt {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  font-size: 0.1rem;
+}
+
+@mixin shadow {
+  box-shadow: var(--shadow-dark);
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin loader-spinner($size, $border, $color, $active-color) {
+  content: '';
+  width: $size;
+  height: $size;
+  border: $border solid $color;
+  border-bottom-color: $active-color;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@mixin fade-in($duration: 0.8s, $timing: ease-in-out, $delay: 0s, $to-opacity: 1) {
+  @at-root {
+    @keyframes fadeIn-#{$to-opacity} {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: #{$to-opacity};
+      }
+    }
+  }
+  opacity: 0;
+  animation: fadeIn-#{$to-opacity} $duration $timing $delay forwards;
+}

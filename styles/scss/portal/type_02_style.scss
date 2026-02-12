@@ -1,0 +1,254 @@
+//portal> store, portal>요청, 공통(faq,공지사항등) 페이지들에서 사용
+//최상단에 .type-02 클래스 추가
+
+.type-02 {
+  // min-width: 144rem;
+  background: linear-gradient(0deg, var(--blue_30) 0%, var(--blue_30) 100%), var(--light-ff, var(--white));
+  // 공통(faq,공지사항등) 페이지들
+  &.notice {
+    background: var(--white)
+  }
+
+  .footer-container {
+    margin: 0;
+    width:  100%;
+  }
+
+  .breadcrumb-container {
+    .breadcrumb {
+      .path-box {
+        &:last-child {
+          .path {
+            @include flex(row, flex-start, center);
+
+            &:after {
+              content: '';
+              display: block;
+              position: relative;
+              top: -0.2rem;
+              width: 2rem;
+              height: 2rem;
+              margin-top: 0;
+              margin-left: 0.6rem;
+              background: url('/styles/images/icon/ic_btn_blue_arrow_right.svg') no-repeat center;
+              transform: rotate(90deg);
+            }
+
+            .result-count {
+              color: rgba(var(--black), 0.6);
+              margin-left: 0.6rem;
+              margin-bottom: 0.3rem;
+            }
+
+            + .context-menu-container {
+              left: 0;
+              right: initial;
+
+              .context-group {
+                overflow-y: auto;
+                max-height: 22rem;
+              }
+            }
+
+            &.active {
+              + .context-menu-container {
+                display: block;
+              }
+
+              &:after {
+                transform: rotate(270deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-container {
+    main {
+      width: 100%;
+      margin: auto;
+
+      .content-container {
+        //width: 144rem; // main 사이즈보다 넘쳐서 1440px 에서 푸터 진입 페이지 가로스크롤 생기는 이슈 발생
+        margin: auto;
+      }
+    }
+  }
+
+  .field-dropdown {
+    &.type-02-dropdown {
+      .dropdown-container {
+        .dropdown-area {
+          background-color: transparent;
+
+          &.expand {
+            .btn-dropdown {
+              border-radius: 2.1rem 2.1rem 0px 0px;
+              background-color: var(--white);
+            }
+
+            .context-menu {
+              border-radius: 0px 0px 2.1rem 2.1rem;
+            }
+          }
+        }
+
+        .context-menu {
+          button {
+            font-size: 1.6rem;
+            color: var(--gray_2);
+          }
+        }
+
+        .btn-dropdown {
+          border-radius: 10rem;
+          background-color: var(--white);
+        }
+      }
+
+      &.large {
+        .dropdown-container {
+          .dropdown-area {
+            height: 4.2rem;
+          }
+
+          .btn-dropdown {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .tab-container {
+    &.large {
+      > .tab-top-area {
+        border-bottom: none;
+
+        .btn-request {
+          border-radius: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .btn {
+    &.btn-outline {
+      border-color: var(--gray_3);
+      color: var(--gray_1);
+
+      &:hover:not(:disabled) {
+        background-color: var(--gray_4);
+        color: var(--gray_1);
+      }
+    }
+  }
+
+  table {
+    thead {
+      tr {
+        th {
+          background-color: var(--gray_5);
+
+          &.sort {
+            &.asc {
+              background-color: var(--gray_5);
+
+              .btn-sort {
+                &:after {
+                  background: var(--gray_5) url('/styles/images/icon/ic_selector_asc.svg') no-repeat center;
+                }
+              }
+            }
+
+            &.desc {
+              background-color: var(--gray_5);
+
+              .btn-sort {
+                &:after {
+                  content: '';
+                  background: var(--gray_5) url('/styles/images/icon/ic_selector_desc.svg') no-repeat center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header-container {
+    box-shadow: var(--shadow);
+  }
+
+  .content-container {
+    .content-top-area {
+      .content-top-inner {
+        margin-bottom: 2rem;
+
+        .breadcrumb-container {
+          margin-bottom: 0;
+
+          .breadcrumb {
+            .path-box {
+              &:last-child {
+                .path {
+                  line-height: normal;
+
+                  &:after {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .context-menu-container {
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .list-bottom-area {
+    table {
+      min-width: 144rem;
+    }
+  }
+
+  .list-info-box {
+    .btn {
+      &.active,
+      &:hover {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+    }
+  }
+
+  .library-detail {
+    .popup {
+      .panel-title {
+        color: var(--black);
+      }
+    }
+  }
+
+  .basic-info-container {
+    .info-wrap {
+      .value {
+        color: var(--black);
+      }
+    }
+  }
+
+  .content-file-container {
+    .file-info-area {
+      color: var(--black);
+    }
+  }
+}

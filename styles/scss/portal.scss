@@ -1,0 +1,19 @@
+@import './global.scss';
+
+//--------- Have to go to the common.scss -------------- //
+@import './portal/po_detail_info';
+@import './portal/po_filter';
+@import './portal/po_list';
+@import './portal/po_search';
+
+@import './portal/po_req';
+//스토어 > 요청
+@import './portal/po_store_assets_card';
+@import './portal/po_store_home';
+//스토어 > 홈
+//@import './portal/type_02_style';
+//type_02 (portal>스토어, portal>요청, 공통 카테고리) 스타일 오버라이딩
+
+@import './management/workspace';
+@import './management/asset_manage';
+// @import './dark_theme';

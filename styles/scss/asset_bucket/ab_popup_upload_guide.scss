@@ -1,0 +1,29 @@
+.popup-upload-guide {
+  .popup {
+    width: 500px;
+    position: relative;
+    padding: 4rem 3rem;
+
+    .popup-middle {
+      .popup-text-box {
+        margin-top: 0;
+      }
+    }
+    .field-container {
+      margin-bottom: 4rem;
+
+      .field {
+        label {
+          @include font(1.6rem, 500, var(--gray_1), normal);
+        }
+      }
+    }
+
+    textarea {
+      height: 10rem;
+    }
+  }
+  .file-name {
+    @include font(1.6rem, 700, var(--gray_1), 28px);
+  }
+}

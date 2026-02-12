@@ -1,0 +1,391 @@
+$ratioSize: 2.152;
+
+.type-02 {
+  @include fade-in(0.5s, ease-in-out);
+
+  &.store-home {
+    .main-container {
+      padding: 0;
+      scrollbar-gutter: stable;
+      overflow-x: hidden;
+    }
+
+    main {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: fit-content;
+
+      &:has(.store-home-area) {
+        background: linear-gradient(180deg, rgba(230, 237, 252, 0.5) 0px, transparent 920px), var(--white);
+      }
+    }
+
+    .gnb-container {
+      margin: 0 0.3rem 4rem;
+    }
+  }
+
+  .store-home-content {
+    width: 140rem;
+  }
+
+  &:not(.notice) {
+    #wrap {
+      padding: 0;
+    }
+
+    main {
+      padding: 0;
+      max-width: 100%;
+    }
+
+    .content-container {
+      padding-bottom: 0 !important;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .content-top-area {
+        height: 54px;
+      }
+    }
+  }
+}
+
+.store-home-area {
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+
+  &.loading {
+    opacity: 0;
+  }
+
+  &:empty {
+    height: 100vh;
+  }
+
+  &.nodata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 140px);
+    @include font(1.8rem, 500, var(--gray_1), 160%);
+  }
+}
+
+.no-data-content {
+  @include flex(column, center, center);
+  width: 100%;
+  min-height: 325px;
+
+  .message {
+    @include font(1.8rem, 500, var(--gray_1), 160%);
+    text-align: center;
+  }
+
+  .button-box {
+    justify-content: center;
+    width: 100%;
+
+    .btn {
+      width: 100%;
+      max-width: 21.6rem;
+    }
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 4rem;
+  }
+  100% {
+    max-height: 500px;
+    opacity: 1;
+    padding: 5rem 4rem;
+  }
+}
+.store-home-section {
+  @include flex(column, center, center);
+  overflow: hidden;
+  padding: 5rem 4rem;
+
+  &.display-module {
+    @include fade-in(0.6s, ease-in-out);
+
+    ~ .new {
+      animation: slideDown 0.6s ease-in-out;
+    }
+  }
+  &.new, &.display-module {
+    align-items: flex-start;
+
+    .store-home-section-title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 120%;
+
+      .title {
+        padding: 0 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &.popular {
+    background: var(--blue_900);
+    backdrop-filter: blur(15px);
+
+    .no-data-content {
+      .message {
+        color: var(--white);
+      }
+    }
+  }
+
+  &.keyword {
+    background: var(--white);
+  }
+}
+
+.store-home-section-title {
+  position: relative;
+  @include font(3.6rem, 700, var(--black), 180%);
+  margin-bottom: 2rem;
+
+  &:has( ~ .store-home-section-subtitle) {
+    margin-bottom: 2rem;
+  }
+}
+
+.store-home-section-subtitle {
+  padding: 0 50px;
+  @include font(1.6rem, 500, rgba(var(--black), 0.6), 150%);
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+//새로나온 자산
+.swiper-new-container {
+  width: 100%;
+  max-width: 1920px;
+  height: 290px;
+
+  &:has(.no-data-content) {
+    display: flex;
+  }
+
+  .swiper-new {
+    width: 100%;
+    align-items: center;
+    overflow: initial;
+
+    .swiper-wrapper {
+      align-items: center;
+    }
+
+    .swiper-slide {
+      @include fade-in(1.2s, ease-in-out);
+      @include flex(row, center, center);
+      width: 360px;
+
+      &:hover {
+        .assets-button-box {
+          z-index: 5;
+          opacity: 1;
+        }
+      }
+    }
+
+    .swiper-image {
+      width: 100%;
+
+      .thumbnail {
+        position: relative;
+        height: 20.2rem;
+        box-shadow: var(--shadow);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition: all 0.3s;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        &.dim {
+          &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: var(--dim);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.navigation-container {
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+
+  .swiper-button-prev, .swiper-button-next {
+    width: 20px;
+    height: 20px;
+    background: url('/styles/images/icon/ic_lnb_arrow_down.svg') no-repeat;
+    cursor: pointer;
+
+    &:hover, &:active {
+      background: var(--primary);
+      mask: url('/styles/images/icon/ic_lnb_arrow_down.svg') no-repeat center;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.3;
+    }
+  }
+
+  .swiper-button-prev {
+    rotate: 90deg;
+  }
+
+  .swiper-button-next {
+    rotate: -90deg;
+  }
+}
+
+.authority ~ .popular {
+  animation: slideDown 0.6s ease-in-out;
+}
+//서비스명 인기 자산
+.popular {
+  .store-home-section-title {
+    color: var(--white);
+  }
+
+  .popular-tab-box {
+    gap: 0 1rem;
+    justify-content: center;
+
+    .tab {
+      padding: 1rem 2.6rem;
+      border-radius: 5rem;
+      background-color: rgba(var(--white), 0.2);
+      color: var(--white);
+      font-size: 1.6rem;
+
+      &:hover,
+      &.active {
+        background-color: black;
+        color: var(--white);
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .assets-card-lists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6rem 1.6rem;
+
+    .assets-card-box {
+      width: 33.8rem;
+      height: 43.8rem;
+    }
+  }
+
+  .assets-card-bottom {
+    margin-top: 15rem;
+    text-align: center;
+
+    .btn-view-more {
+      width: 21.6rem;
+      height: 4.8rem;
+      padding: 1rem 1.6rem;
+      background-color: transparent;
+      border: 0.1rem solid var(--white);
+      border-radius: var(--radius);
+      @include font(1.6rem, 600, var(--white), normal);
+      text-align: center;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: var(--white);
+        color: var(--black);
+      }
+
+      &:disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .assets-card-lists:has(.no-data-content) ~ .assets-card-bottom {
+    margin-top: 0;
+  }
+
+  .popular-bottom-area {
+    margin-top: 2rem;
+
+    .assets-top-box {
+      .assets-content-box {
+        width: 34.8rem;
+        height: 19.4rem;
+      }
+    }
+
+    .assets-info-box {
+      .assets-title {
+        color: var(--white);
+      }
+
+      .assets-text {
+        color: var(--gray_100) !important;
+      }
+    }
+  }
+}
+
+//오늘의 인기자산 키워드
+.keyword {
+  .content-tab-box {
+    margin-bottom: 2rem;
+    padding-right: 0;
+
+    .tab-box {
+      gap: 0.7rem 0.8rem;
+    }
+  }
+
+  .swiper-keyword-container {
+    width: 140rem;
+    overflow: hidden;
+
+    .swiper-slide {
+      width: auto;
+    }
+  }
+}

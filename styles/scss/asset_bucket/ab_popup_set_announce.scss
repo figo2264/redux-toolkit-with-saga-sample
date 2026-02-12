@@ -1,0 +1,34 @@
+.popup-set-announce {
+  .popup-middle {
+    .set-workspace-announce-box {
+      @include flex(row, space-between, center);
+
+      &:not(:last-child) {
+        margin-bottom: 1.4rem;
+      }
+
+      .title {
+        flex: 1 1 auto;
+        @include font(1.8rem, 600, var(--gray_1), 2.88rem);
+        @include ellipsis();
+      }
+
+      .field {
+        @include flex(row, flex-end, center);
+        flex: 0 0 auto;
+        width: auto;
+        margin-bottom: 0;
+
+        label {
+          flex: 1 1 auto;
+          margin-bottom: 0;
+          @include ellipsis();
+        }
+
+        .label-text {
+          @include font(1.6rem, 400, var(--gray_2), 2.88rem);
+        }
+      }
+    }
+  }
+}

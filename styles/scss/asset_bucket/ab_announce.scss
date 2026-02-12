@@ -1,0 +1,230 @@
+.new {
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--red_500);
+  }
+}
+
+.notify-container {
+  overflow: hidden;
+}
+
+.announce-container {
+  padding: 0 3rem 4rem 3rem;
+  height: calc(100vh - 14rem);
+
+  .dropdown-container {
+    .dropdown-area {
+      &.expand {
+        .btn-dropdown {
+          box-shadow: none;
+        }
+      }
+
+      .context-menu {
+        border: none;
+        // top: 4rem;
+        width: 18rem;
+        border-radius: 0.8rem;
+        box-shadow: var(--shadow-dark);
+      }
+    }
+  }
+
+  .announce-top-area {
+    @include flex(row, space-between, center);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding-bottom: 2.8rem;
+    padding-top: 4rem;
+    border-bottom: 0.1rem solid var(--border);
+    background-color: var(--white);
+
+    .area-right {
+      .button-box {
+        align-items: center;
+
+        .btn-outline {
+          margin-left: 0.4rem;
+          margin-right: 0;
+          border-color: var(--gray_4);
+          color: var(--gray_1);
+
+          &:hover {
+            color: var(--primary);
+          }
+        }
+
+        .btn-setting {
+          margin-left: 0.6rem;
+        }
+      }
+    }
+  }
+
+  .announce-bottom-area {
+    @include flex(column, flex-start, flex-start);
+    height: 100%;
+    padding-top: 2.8rem;
+    padding-right: 4px;
+
+    .tab-bottom-area {
+      // overflow-y: auto;
+      width: 100%;
+      margin-top: 2.8rem;
+      margin-bottom: 4rem;
+
+      .tab-panel {
+        // padding-right: 2.6rem;
+      }
+
+      .no-content {
+        @include flex(row, center, center);
+        height: 100%;
+
+        .text {
+          @include font(1.6rem, 500, var(--gray_1), 28px);
+        }
+      }
+    }
+  }
+}
+
+.workspace-container {
+  position: relative;
+  padding: 1.6rem;
+  margin-bottom: 1.6rem;
+  background: var(--gray_5);
+  border-radius: 16px;
+
+  .workspace-wrap {
+    position: relative;
+
+    .btn-close {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .workspace-top-area {
+    display: flex;
+    align-items: center;
+
+    .profile-pic-box {
+      flex: 0 0 3.4rem;
+      position: relative;
+      margin-right: 0.6rem;
+      padding: 0.3rem 0.7rem 0.3rem 0.3rem;
+
+      .profile-assets {
+        width: 2.4rem;
+        height: 2.4rem;
+
+        span {
+          font-size: 1.2rem;
+          line-height: 2.2rem;
+        }
+      }
+    }
+
+    .title-area {
+      @include flex(row, flex-start, center);
+      flex: 1 1 calc(100% - 4rem);
+    }
+
+    .work-category {
+      flex: 0 1 auto;
+      @include font(1.6rem, 700, var(--black), 2.8rem);
+      @include ellipsis();
+    }
+
+    .work-space-name {
+      @include flex(row, flex-start, center);
+      flex: 1 1 auto;
+      position: relative;
+      height: 2.8rem;
+      padding-left: 0.6rem;
+      align-items: center;
+      @include font(1.4rem, 500, var(--gray_2), 2.8rem);
+
+      &:before {
+        content: '';
+        display: block;
+        width: 0.4rem;
+        height: 0.4rem;
+        margin-right: 0.6rem;
+        border-radius: 50%;
+        background: var(--gray_4);
+      }
+
+      > span {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 1.6rem;
+        right: 3rem;
+        @include ellipsis();
+      }
+    }
+  }
+
+  .workspace-bottom-area {
+    margin-top: 4px;
+
+    .content-text {
+      .text-area {
+        @include font(1.6rem, 400, var(--gray_1), 28.8px);
+
+        strong {
+          font-weight: 600;
+        }
+      }
+
+      .btn-more-text {
+        display: none;
+        overflow: hidden;
+        @include font(1.4rem, 500, var(--gray_3), 25.2px);
+      }
+
+      &.more {
+        .text-area {
+          @include multi-ellipsis(true, 2);
+        }
+
+        .btn-more-text {
+          flex-shrink: 0;
+        }
+      }
+
+      &.expand {
+        .text-area {
+          display: block;
+          overflow: visible;
+        }
+      }
+    }
+
+    .button-box {
+      display: block;
+      margin-top: 1rem;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .date {
+      margin-top: 1rem;
+      @include font(1.4rem, 500, var(--gray_3), 25px);
+    }
+  }
+}

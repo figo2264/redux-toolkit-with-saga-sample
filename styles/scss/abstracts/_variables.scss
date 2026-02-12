@@ -1,0 +1,44 @@
+$min-layout-width: 144rem;
+$max-layout-width: 188rem;
+$min-detail-layout-width: 144rem; // 메인도 동일
+$header-top: 6rem;
+$footer-bottom: 8rem;
+$main-padding: 3.6rem;
+$left-width: 29rem;
+$scroll-size: .8rem;
+
+//z-index
+$gnb2depth: 5;
+$one: 1;
+$stateTagBox: 3;
+$listItem_Selected_StateBox: 0;
+$memberInviteTooltip: 1;
+$stateBox: 1;
+$listItem_Selected_thumbnail_checkbox_container: 11;
+$tableThead: 5;
+$detailTopContainer: 2;
+$lnbHandler: 2;
+$filterBottomArea: 5;
+$filterTop: 5;
+$dropdownArea: 30;
+$listItem_folder: 3;
+$listItem_stateBox: 4;
+$listItem_folder_thumbnail: 2;
+
+$listItem_selected_file: 2;
+$listItem_thumbnailCheckboxContainer: 10;
+$authorListContainer: 13;
+$mainLeftContainer: 20;
+$abDetailContainer: 20;
+$poDetailContainer: 999;
+
+$tooltip: 998;
+$searchResultBox: 999;
+$tooltipBreadcrumb: 999;
+$headerContainer: 1000;
+$footerContainer: 1000;
+$toolBar: 1002;
+$contextMenuContainer: 1003;
+$filterContainer: 1004;
+$overlay: 1005;
+$popupDim: 1005;

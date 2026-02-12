@@ -1,0 +1,112 @@
+.search-container {
+  @include flex(row, center, center);
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  .field {
+    margin-bottom: 0;
+  }
+
+  .type-02-dropdown {
+    margin-right: 0.4rem;
+    width: 13.2rem;
+  }
+
+  .box-wrap {
+    overflow: hidden;
+  }
+
+  .search-bar-box {
+    width: 45rem;
+
+    .search-result-box {
+      overflow: hidden;
+
+      .recent-list span {
+        max-width: 415px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &.dropdown-visible {
+      .input-box {
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+
+      .search-result-box {
+        padding-bottom: 6px;
+        border-radius: 0 0 var(--radius) var(--radius);
+      }
+    }
+
+    .input-box {
+      border-radius: var(--radius);
+      border: 0.1rem solid var(--border);
+      background-color: var(--white);
+
+      input {
+        padding: .6rem 2rem;
+        border-radius: 10rem;
+        background-color: transparent;
+      }
+
+      &.disabled {
+        background-color: var(--gray_4);
+      }
+    }
+
+    .recent-list {
+      cursor: pointer;
+
+      //&:last-child {
+      //  border-radius: 0 0 2.2rem 2.2rem;
+      //}
+    }
+  }
+
+  .button-box {
+    margin-left: 1.2rem;
+  }
+}
+
+.search-block {
+  position: relative;
+  width: 100%;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+
+  &__title {
+    @include flex(row, space-between, center);
+    @include font(1.8rem, 500, var(--gray_1), 180%);
+
+    ~ * {
+      margin-top: 16px;
+    }
+
+    .btn-open {
+      width: 2rem;
+      height: 2rem;
+      rotate: -90deg;
+
+      &.active {
+        rotate: 0deg;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background: url('/styles/images/icon/ic_arrow_circle_20.svg') no-repeat center;
+      }
+    }
+  }
+
+  &__nodata {
+    text-align: center;
+    color: var(--gray_3);
+  }
+}

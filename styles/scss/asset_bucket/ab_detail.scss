@@ -1,0 +1,613 @@
+.detail-container {
+  overflow-y: auto;
+  position: fixed;
+  top: $header-top;
+  right: -48.4rem;
+  bottom: 0;
+  z-index: $abDetailContainer;
+  width: 100%;
+  max-width: 48.4rem;
+  background-color: var(--white);
+  box-shadow: var(--shadow-dark);
+  transition: right cubic-bezier(0, 0.6, 0.4, 1) 0.3s;
+
+  &.show {
+    right: 0;
+  }
+
+  .detail-top-container {
+    @include flex(row, space-between, center);
+    position: sticky;
+    top: 0;
+    z-index: $detailTopContainer;
+    padding: 0 2rem;
+    border-bottom: 0.1rem solid var(--gray_4);
+    background-color: var(--white);
+     .tab {
+       font-size: 1.5rem !important;
+     }
+  }
+
+  // .detail-top-container
+
+  .detail-bottom-container {
+    /* ---------- 상세정보 - #tabpanel-detail-info ----------*/
+    .title {
+      @include font(1.8rem, 600, var(--gray_1), 2.4rem);
+      margin-bottom: 1.6rem;
+      width: 100%;
+    }
+
+    .file-title-box {
+      @include ellipsis();
+      width: calc(100% - 76px);
+      gap: 0.6rem;
+
+      img {
+        float: left;
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    .tab-panel-top {
+      margin-bottom: 3rem;
+      padding: 2.8rem 3.6rem 0 3.6rem;
+
+      .file-summary {
+        padding-bottom: 2.4rem;
+        border-bottom: 0.1rem solid var(--gray_4);
+
+        .filename-box {
+          @include flex(row, space-between, center);
+          margin-bottom: 0.6rem;
+
+          .filename {
+            // @include flex(fow, flex-start, center);
+            @include font(2rem, 500, var(--gray_1), 3rem);
+            @include ellipsis();
+            margin-top: 0.2rem;
+
+            &.file {
+              &:before {
+                content: '';
+                float: left;
+                display: block;
+                width: 3rem;
+                height: 3rem;
+                margin-right: 0.6rem;
+                background: url('/styles/images/icon/ic_file_large.svg') no-repeat center;
+              }
+            }
+
+            &.folder {
+              &:before {
+                content: '';
+                display: block;
+                float: left;
+                width: 3rem;
+                height: 3rem;
+                margin-right: 0.6rem;
+                background: url('/styles/images/icon/ic_folder_large.svg') no-repeat center;
+              }
+            }
+          }
+
+          .state {
+            min-width: 6.4rem;
+            max-width: 7.2rem;
+            padding: 0 1rem;
+            border-radius: 1.1rem;
+            background-color: var(--gray_85);
+            @include font(1.2rem, 600, var(--gray_3), 2.2rem);
+            text-align: center;
+
+            &.complete {
+              background-color: var(--green_50);
+              color: var(--green_400);
+            }
+
+            &.reject {
+              background-color: var(--red_soft_50);
+              color: var(--red_soft_500);
+            }
+
+            &.request {
+              background-color: var(--blue_60);
+              color: var(--primary);
+            }
+          }
+        }
+
+        .author-box {
+          .field-dropdown {
+            @include flex(row, flex-start, center);
+            margin-bottom: 0;
+          }
+
+          .dropdown-container {
+            .btn-dropdown {
+              border: none;
+              height: 2.4rem;
+              padding: 0;
+              padding-right: 2.4rem;
+              background-position: center right;
+              color: var(--gray_3);
+            }
+          }
+        }
+      }
+    }
+
+    .tab-panel-bottom {
+      padding: 0 3.6rem 2.8rem 3.6rem;
+
+      .tab-panel-bottom-top {
+        margin-bottom: 2.4rem;
+
+        &.toggle-area {
+          overflow: hidden;
+          height: 29.752rem;
+
+          &.expand {
+            height: auto;
+          }
+        }
+      }
+
+      // .tab-panel-bottom-top
+
+      .detail-info-list {
+        .info {
+          @include flex(row, flex-start, center);
+
+          &:not(:last-child) {
+            margin-bottom: 1.2rem;
+          }
+
+          .label {
+            flex: 0 1 12rem;
+            margin-right: 1rem;
+            @include font(1.4rem, 500, var(--gray_3), 180%);
+          }
+
+          .content {
+            @include flex(row, flex-start, center);
+            flex: 1;
+            gap: 0.6rem;
+            min-width: 0;
+            @include font(1.4rem, 500, var(--gray_1), 180%);
+            @include ellipsis();
+
+            .filename,
+            .user-name {
+              @include ellipsis();
+            }
+
+            .btn-edit {
+              display: block;
+              min-width: 2.4rem;
+              height: 2.4rem;
+              background: url('/styles/images/icon/ic_edit.svg') no-repeat center;
+
+              &:disabled {
+                opacity: 0.3;
+              }
+            }
+
+            .tag-box {
+              @include flex(row, flex-start, center);
+              gap: 0.6rem;
+              flex-wrap: wrap;
+              max-width: calc(100% - 3rem);
+
+              .tag {
+                display: block;
+                max-width: 100%;
+                height: 2.2rem;
+                padding: 0 1.2rem;
+                border-radius: 1.1rem;
+                background-color: var(--blue_500-opacity-15);
+                @include font(1.2rem, 600, var(--primary), 2.2rem);
+                @include ellipsis();
+              }
+            }
+
+            a {
+              @include font(1.4rem, 500, var(--gray_1), 180%);
+              text-decoration: underline;
+            }
+
+            .input-box {
+              input {
+                width: 100%;
+                border: none;
+
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+          }
+
+          &.tag {
+            .content {
+              color: rgba(var(--gray_1), 0.3);
+
+              .input-box {
+                width: 125px;
+              }
+            }
+          }
+
+          &.expiry-date {
+            .content {
+              .input-box {
+                width: 75px;
+              }
+            }
+          }
+        }
+      }
+
+      // .detail-info-list
+
+      .button-box {
+        width: 100%;
+
+        .btn-toggle {
+          @include flex(row, center, center);
+          margin: auto;
+          @include font(1.4rem, 500, var(--gray_3), 2.52rem);
+
+          &:after {
+            content: '';
+            display: block;
+            width: 2.4rem;
+            height: 2.4rem;
+            margin-left: 0.2rem;
+            background: url('/styles/images/icon/ic_arrow-down.svg') no-repeat center;
+          }
+
+          &.expand {
+            &:after {
+              background: url('/styles/images/icon/ic_arrow-up.svg') no-repeat center;
+            }
+          }
+        }
+      }
+
+      .preview-container {
+        .preview-area {
+          overflow: hidden;
+          border-radius: var(--radius);
+          width: 100%;
+          min-height: 20.4rem;
+          background-color: var(--gray_5);
+        }
+      }
+    }
+
+    // .tab-panel-bottom
+
+    .author-container {
+      .btn-toggle {
+        border: none;
+        background-color: transparent;
+        @include font(1.4rem, 600, var(--gray_3), 2.52rem);
+      }
+    }
+
+    /* ---------- 버전정보 - #tabpanel-version-info ----------*/
+
+    .file-version-container {
+      padding: 2.8rem 0;
+
+      .version {
+        @include flex(row, flex-start, flex-start);
+        gap: 1.2rem;
+        width: 100%;
+        padding: 2.4rem 3.6rem;
+
+        &.selected {
+          background-color: var(--blue_500-opacity-10);
+
+          .title-box {
+            .state-box {
+              display: none;
+            }
+
+            .button-box {
+              @include flex(row, flex-start, center);
+            }
+          }
+        }
+
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid var(--line);
+        }
+
+        .version-left {
+          width: 10rem;
+          // 세로가 긴 파일의 경우 이미지 넘치는 에러 개선
+          overflow: hidden;
+          height: 6rem;
+          border-radius: 0.4rem;
+
+          .no-thumbnail {
+            @include flex(row, center, center);
+            width: 100%;
+            height: 6rem;
+            border-radius: 0.4rem;
+            background: var(--line);
+            @include font(1.2rem, 500, var(--gray_3), 180%);
+          }
+        }
+
+        .version-right {
+          flex: 1;
+          width: 29.6rem;
+        }
+
+        .version-right-top {
+          margin-bottom: 1rem;
+        }
+
+        .title-box {
+          @include flex(row, space-between, center);
+          gap: 0.6rem;
+          width: 100%;
+          min-height: 3rem;
+          margin-bottom: 0.4rem;
+
+          .title {
+            flex: 1;
+            max-width: 22rem;
+            margin-bottom: 0;
+            @include font(1.6rem, 700, var(--gray_1), 2.8rem);
+            @include ellipsis();
+          }
+
+          .button-box {
+            display: none;
+            gap: 0.4rem;
+
+            .btn-outline {
+              margin-right: 0;
+              border-color: var(--gray_4);
+              color: var(--gray_1);
+              font-weight: 500;
+
+              &:hover {
+                color: var(--primary);
+              }
+            }
+          }
+        }
+
+        .state-box {
+          @include flex(row, flex-start, center);
+          gap: 0.4rem;
+        }
+
+        .info-box {
+          @include flex(row, space-between, center);
+
+          .editor,
+          .editted-date {
+            @include font(1.2rem, 400, var(--gray_3), 2.52rem);
+          }
+        }
+
+        .description {
+          @include font(1.4rem, 500, var(--gray_1), 2.52rem);
+        }
+      }
+    }
+
+    /* ---------- 상세정보 - #tabpanel-history-info ----------*/
+
+    .file-history-container {
+      .history-list-box {
+        padding: 4rem 2.8rem;
+        position: relative;
+
+        &:not(.empty) {
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 4rem;
+            bottom: 0;
+            width: 0.1rem;
+            background-color: var(--gray_4);
+          }
+        }
+
+        .no-data-content {
+          width: 100%;
+          @include font(1.4rem, 500, var(--gray_3), normal);
+          text-align: center;
+        }
+      }
+
+      .history {
+        position: relative;
+        margin-left: 3.6rem;
+        padding: 2rem;
+        border-radius: 1rem;
+        background-color: var(--gray_5);
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: calc(50% - 0.4rem);
+          left: -2.8rem;
+          width: 0.8rem;
+          height: 0.8rem;
+          border-radius: 50%;
+          background-color: var(--gray_4);
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 1.6rem;
+        }
+
+        .history-top {
+          @include flex(row, space-between, center);
+          width: 100%;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          border-bottom: 0.1rem solid var(--gray_4);
+
+          .profile-box {
+            @include flex(row, flex-start, center);
+            gap: 0.6rem;
+            width: 19.5rem;
+
+            .profile-assets {
+              flex-shrink: 0;
+              width: 2.4rem;
+              height: 2.4rem;
+
+              span {
+                font-size: 1.2rem;
+                line-height: 2.1rem;
+              }
+            }
+
+            .user-name {
+              @include font(1.4rem, 700, var(--gray_1), 180%);
+              @include ellipsis();
+
+              &:hover {
+                .tooltip {
+                  display: block;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+
+          // .profile-box
+
+          .date {
+            @include font(1.2rem, 400, var(--gray_3), 180%);
+            @include ellipsis();
+            white-space: nowrap;
+          }
+        }
+
+        // .history-top
+
+        .history-bottom {
+          .description {
+            margin-bottom: 0;
+            @include font(1.4rem, 500, var(--gray_1), 180%);
+            word-break: break-word;
+
+            .action {
+              display: inline-block;
+              @include font(1.4rem, 700, var(--gray_1), 2.5rem);
+              vertical-align: baseline;
+            }
+
+            .element {
+              display: inline-block;
+              position: relative;
+              @include font(1.4rem, 500, var(--primary), 2.5rem);
+              vertical-align: baseline;
+
+              &:hover {
+                .list {
+                  display: block;
+                }
+              }
+
+              .list {
+                display: none;
+                overflow-y: auto;
+                overscroll-behavior: none;
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                min-width: 12rem;
+                max-height: 13.2rem;
+                left: 0;
+                z-index: 3;
+                border-radius: 0.4rem;
+                background-color: var(--white);
+                box-shadow: var(--shadow-dark);
+
+                [class^='dropdown-'] {
+                  display: block;
+                  width: 100%;
+                  height: 4.4rem;
+                  padding: 1rem 1.6rem;
+                  @include font(1.4rem, 500, var(--gray_3), 180%);
+                  text-align: left;
+                  white-space: nowrap;
+                  @include ellipsis;
+
+                  &.dropdown-user {
+                    @include flex(row, flex-start, center);
+
+                    .profile-assets {
+                      width: 2rem;
+                      height: 2rem;
+                      margin-right: 0.6rem;
+
+                      span {
+                        font-size: 1.2rem;
+                        line-height: 2.1rem;
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    background-color: var(--hover);
+                    color: var(--primary);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // .history-bottom
+      }
+    }
+
+    /* ---------- 참고 - #tabpanel-other-info ----------*/
+    .file-other-container {
+      padding: 4rem 3.6rem;
+      position: relative;
+
+      .reference-box {
+        @include font(1.4rem, 500, var(--gray_1), 2.52rem);
+
+        &:hover {
+          &:after {
+            background: url('/styles/images/icon/ic_blank_sel.svg') no-repeat center / 1.6rem;
+          }
+        }
+
+        a {
+          @include font(1.4rem, 500, var(--gray_1), 2.52rem);
+        }
+
+        &:after {
+          content: '';
+          display: inline-block;
+          width: 1.6rem;
+          height: 1.6rem;
+          background: url('/styles/images/icon/ic_blank.svg') no-repeat center / 1.6rem;
+        }
+      }
+    }
+  }
+
+  // detail-bottom-container
+}

@@ -1,0 +1,41 @@
+
+.quill-valid {
+  .ql-toolbar {
+    border-left: 1px solid #ff0000 !important;
+    border-right: 1px solid #ff0000 !important;
+    border-top: 1px solid #ff0000 !important;
+  }
+
+  div {
+    .ql-container {
+      border-left: 1px solid #ff0000 !important;
+      border-right: 1px solid #ff0000 !important;
+      border-bottom: 1px solid #ff0000 !important;
+    }
+  }
+}
+
+
+.quill-readonly {
+  > .ql-container.ql-snow {
+    border: none;
+
+    > .ql-editor {
+      font-weight: 500;
+      font-size: 1.4rem;
+      padding: 0 !important;
+      min-height: 0px;
+      line-height: 2rem;
+
+      p {
+        line-height: 240%;
+      }
+    }
+
+    &.on-popup {
+      > .ql-editor {
+        overflow-y: hidden;
+      }
+    }
+  }
+}

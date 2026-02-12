@@ -1,0 +1,115 @@
+.login-container {
+  @include flex(row, center, center);
+  height: calc(100vh - 16.2rem);
+
+  &.otp {
+    .login-right-area {
+      .login-button-box {
+        margin-top: auto;
+      }
+    }
+  }
+
+  .login-area {
+    @include flex(row, flex-start, flex-start);
+    position: relative;
+    min-height: 50.4rem;
+    padding: 1rem;
+    background-color: var(--white);
+    border: 0.1em solid var(--gray_4);
+    border-radius: 0.8rem;
+    overflow: hidden;
+  }
+
+  .login-left-area {
+    flex: 0 1 43rem;
+    width: 43rem;
+    height: 100%;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .login-right-area {
+    @include flex(column, flex-start, flex-start);
+    flex: 1;
+    padding: 2rem 4rem;
+    height: 100%;
+
+    .field-container {
+      margin-bottom: 0;
+    }
+
+    .login-title {
+      @include flex(row, flex-start, center);
+      margin-bottom: 4rem;
+      @include font(2.4rem, 700, black, 180%);
+
+      &.back {
+        &::before {
+          content: '';
+          display: block;
+          width: 3rem;
+          height: 3rem;
+          background: url('/styles/images/icon/ic_arrow_back.svg') no-repeat center;
+        }
+      }
+    }
+
+    .login-form {
+      width: 35rem;
+
+      .field-box {
+        margin-bottom: 2rem;
+
+        &:last-child {
+          margin-bottom: 0.9rem;
+        }
+      }
+
+      .field {
+        label {
+          font-size: 1.6rem;
+          font-weight: 600;
+        }
+
+        &.field-input-checkbox {
+          label {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .login-check-bottom {
+      @include flex(row, space-between, center);
+    }
+
+    .btn-password-reset {
+      @include font(1.4rem, 400, var(--gray_1), 180%);
+    }
+
+    .login-button-box {
+      margin-top: 4rem;
+      width: 100%;
+      text-align: center;
+
+      button {
+        margin: 0 auto;
+        width: 21.6rem;
+      }
+    }
+
+    .guide-link-text {
+      margin-top: 1.2rem;
+      @include font(1.4rem, 400, var(--gray_1), 180%);
+
+      .btn-go-join {
+        color: var(--primary);
+        font-weight: 700;
+      }
+    }
+  }
+}

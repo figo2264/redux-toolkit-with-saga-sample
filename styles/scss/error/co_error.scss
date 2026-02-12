@@ -1,0 +1,51 @@
+.error-container {
+  @include flex(row, center, center);
+  height: calc(100vh - 16.2rem);
+
+  .error-area {
+    @include flex(column, flex-start, center);
+    position: relative;
+    width: 102.4rem;
+    max-height: 68vh;
+    padding: 4rem;
+    background-color: var(--white);
+    border: 0.1em solid var(--gray_4);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .error-area-top {
+    width: 100%;
+  }
+
+  .error-area-bottom {
+    width: 100%;
+    margin-top: 2.8rem;
+  }
+
+  .image-box {
+    display: block;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto 4rem;
+  }
+
+  .error-top-title {
+    margin-bottom: 2.8rem;
+    @include font(3.4rem, 700, var(--gray_1), 1.4);
+  }
+
+  .error-middle-text {
+    @include font(1.8rem, 500, var(--gray_2), 1.5);
+  }
+
+  .button-box {
+    @include flex(row, center, center);
+
+    .btn {
+      flex: 1;
+      max-width: 21.6rem;
+    }
+  }
+}

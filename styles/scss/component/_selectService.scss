@@ -1,0 +1,51 @@
+.service-list {
+  @include flex(flex-start, center, center);
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--white);
+  gap: 8rem;
+
+  .service {
+    @include flex(column, flex-start, center);
+    gap: 0.4rem;
+    min-width: 8.4rem;
+    text-align: center;
+
+    .btn-move {
+      display: block;
+      width: 16rem;
+      height: 16rem;
+      border: 0.1rem solid var(--gray_5);
+      background-color: var(--blue_500-opacity-10);
+      border-radius: 50%;
+
+      &.selected,
+      &:hover {
+        border-color: var(--primary);
+        background-color: var(--blue_500-opacity-10) !important;
+
+        & + .label {
+          color: var(--primary);
+          font-weight: 700;
+        }
+      }
+
+      &.btn-store,
+      &.btn-portal {
+        background: var(--gray_5) url('/styles/images/icon/ic_menu_portal_large.svg') no-repeat center / 6rem;
+      }
+
+      &.btn-asset-bucket {
+        background: var(--gray_5) url('/styles/images/icon/ic_menu_assetbucket_large.svg') no-repeat center/ 6rem;
+      }
+
+      &.btn-management-system {
+        background: var(--gray_5) url('/styles/images/icon/ic_management_large.svg') no-repeat center/ 6rem;
+      }
+    }
+
+    .label {
+      margin-top: 1.2rem;
+      @include font(1.4rem, 500, var(--gray_1), normal);
+    }
+  }
+}

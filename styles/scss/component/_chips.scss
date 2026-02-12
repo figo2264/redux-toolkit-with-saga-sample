@@ -1,0 +1,162 @@
+.chip-button-box {
+  @include flex(row, flex-start, flex-start);
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding-right: 3.3rem;
+  position: relative;
+
+  &.scroll-box {
+    @include flex(row, flex-start, flex-start);
+    width: 100%;
+    // max-width: 37.5rem;
+    overflow-x: auto;
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+    }
+
+    /* Firefox */
+
+    .chip-button {
+      @include flex(row, flex-start, center);
+      background-color: var(--white);
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .chip-button {
+    @include flex(row, flex-start, flex-start);
+    border-radius: 0.6rem;
+    border: 0.1rem solid var(--border);
+    background-image: none;
+    white-space: nowrap;
+    @include font(1.6rem, 500, var(--gray_3), 2.8rem);
+    background-color: var(--white);
+    max-width: 100%;
+
+    span {
+      display: block;
+      width: calc(100% - 2.2rem);
+      @include ellipsis();
+    }
+
+    &:hover,
+    &.active {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    &:hover {
+      background: var(--hover);
+    }
+
+    &.type-input {
+      border-radius: 1.4rem;
+    }
+
+    &.size-medium {
+      padding: 0.9rem 1.6rem;
+      border-radius: 0.2rem;
+
+      &.icon,
+      &.icon-x {
+        &:after {
+          margin-left: 0.6rem;
+        }
+      }
+    }
+
+    &.size-small {
+      padding: 0.2rem 1.6rem;
+      border-radius: 0.4rem;
+
+      &.icon,
+      &.icon-x {
+        &:after {
+          margin-left: 0.6rem;
+        }
+      }
+    }
+
+    &.size-xsmall {
+      padding: 0.3rem 1.2rem;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      border-color: var(--primary);
+
+      &.icon,
+      &.icon-x {
+        padding-right: 0.8rem;
+
+        &:after {
+          margin-left: 0.6rem;
+        }
+      }
+    }
+
+    &.size-xxsmall {
+      padding: 0 1rem;
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      border-color: var(--primary);
+
+      &.icon,
+      &.icon-x {
+        padding-right: 0.6rem;
+
+        &:after {
+          margin-left: 0.4rem;
+        }
+      }
+    }
+
+    &.icon,
+    &.icon-x {
+      align-items: center;
+
+      // &:after {
+      //   content: '';
+      //   display: block;
+      // }
+
+      .btn-delete {
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-left: 0.6rem;
+        padding: 0;
+      }
+    }
+
+    &.icon {
+      &:after {
+        width: 2rem;
+        height: 2rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M9.29159 15.8334C9.29159 16.2246 9.60872 16.5417 9.99992 16.5417C10.3911 16.5417 10.7083 16.2246 10.7083 15.8334V10.7084H15.8333C16.2245 10.7084 16.5416 10.3912 16.5416 10C16.5416 9.60884 16.2245 9.29171 15.8333 9.29171H10.7083V4.16671C10.7083 3.77551 10.3911 3.45837 9.99992 3.45837C9.60872 3.45837 9.29159 3.77551 9.29159 4.16671V9.29171H4.16659C3.77538 9.29171 3.45825 9.60884 3.45825 10C3.45825 10.3912 3.77538 10.7084 4.16659 10.7084H9.29159V15.8334Z' fill='%23AAAAAA'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &.active {
+        &:after {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='11' viewBox='0 0 16 11' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.2559 0.410826C15.5814 0.736263 15.5814 1.2639 15.2559 1.58934L6.08926 10.756C5.76382 11.0814 5.23618 11.0814 4.91074 10.756L0.744078 6.58934C0.418641 6.2639 0.418641 5.73626 0.744078 5.41083C1.06951 5.08539 1.59715 5.08539 1.92259 5.41083L5.5 8.98824L14.0774 0.410826C14.4028 0.0853888 14.9305 0.0853888 15.2559 0.410826Z' fill='%2309C26A'/%3E%3C/svg%3E");
+        }
+      }
+    }
+
+    &.icon-x {
+      .btn-delete {
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url('/styles/images/icon/ic_close_small.svg') no-repeat center;
+      }
+    }
+  }
+}

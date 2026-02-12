@@ -1,0 +1,7 @@
+// 공지사항, faq, 이용약관, 개인정보, 저작권 안내 에서만 사용
+@import '././abstracts/variables';
+@import '././abstracts/functions';
+@import '././abstracts/mixins';
+
+//type_02 (portal>스토어, portal>요청, 공통 카테고리) 스타일 오버라이딩
+@import './notice/co_not';

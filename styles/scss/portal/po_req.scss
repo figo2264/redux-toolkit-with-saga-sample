@@ -1,0 +1,58 @@
+.table-container {
+}
+
+.req-btn-list-box {
+  padding: 0.6rem 0;
+  @include flex(row, space-between, center);
+  gap: 0 1.6rem;
+  .req-btn-list-left {
+    flex: none;
+    // width: 12.2rem;
+
+    .btn {
+      width: 10rem;
+      height: 3.4rem;
+      margin-bottom: 0.6rem;
+      margin-right: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .req-btn-list-left {
+    .btn {
+      width: 9rem;
+      height: 3.4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-right: 0.6rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .req-btn-list-right {
+    width: 100%;
+    @include flex(row, flex-start, flex-start);
+
+    &:only-child {
+      // ms_invite_list_table 에서 사용
+      .btn {
+        &:only-child {
+          margin-left: auto;
+        }
+      }
+    }
+    .btn {
+      width: 9rem;
+      height: 3.4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-right: 0.6rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

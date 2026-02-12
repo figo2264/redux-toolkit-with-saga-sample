@@ -1,0 +1,307 @@
+@media (prefers-color-scheme: dark) {
+  // -------------------------------- COMMON --------------------------------//
+
+  .header-container {
+    header {
+      h1 {
+        &.assetio {
+          background: url('/styles/images/logo_damp.svg') no-repeat;
+        }
+
+        &.bucket {
+          background: url('/styles/images/logo_bucket_dark.svg') no-repeat;
+        }
+
+        &.portal {
+          background: url('/styles/images/logo_portal_dark.svg') no-repeat;
+        }
+
+        &.store {
+          background: url('/styles/images/logo_store_dark.svg') no-repeat;
+        }
+
+        &.control {
+          background: url('/styles/images/logo_control_dark.svg') no-repeat;
+        }
+      }
+
+      .header-right-area {
+        .session-message {
+          color: var(--white);
+        }
+
+        .button-box {
+          .btn-alarm {
+            background: url('/styles/images/icon/ic_alarm_large_dark.svg') no-repeat center;
+          }
+
+          .btn-service {
+            background: url('/styles/images/icon/ic_grid_large_dark.svg') no-repeat center;
+          }
+        }
+      }
+    }
+  }
+
+  .service-list {
+    .service {
+      .label {
+        color: var(--white);
+      }
+    }
+  }
+
+  .search-bar-box {
+    .input-box {
+      input {
+      }
+    }
+  }
+
+  .search-main-container {
+    .button-box {
+      .btn-filter {
+        background-color: #353942;
+        color: var(--white);
+      }
+    }
+  }
+
+  .breadcrumb-container {
+    .breadcrumb {
+      .path {
+        color: var(--white);
+      }
+
+      .arrow {
+        background: url('/styles/images/icon/ic_arrow_right_dark.svg') no-repeat center / 2rem;
+      }
+    }
+  }
+
+  .lnb-container {
+    .lnb {
+      .menu-list {
+        .menu {
+          &.has-child {
+            > .btn-menu {
+              .text-box {
+                &:before {
+                  background: url('/styles/images/icon/ic_lnb_arrow_down_dark.svg') no-repeat center / 100% auto;
+                }
+              }
+            }
+          }
+
+          .btn-menu {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+
+  .main-container {
+    .main-left-container {
+      box-shadow: none;
+    }
+  }
+
+  .tooltip,
+  .lnb-tooltip {
+    color: var(--white);
+    border: none;
+    box-shadow: none;
+  }
+
+  .list-bottom-area {
+    table {
+      border-color: var(--border);
+      box-shadow: var(--shadow-dark);
+    }
+  }
+
+  table {
+    thead {
+      tr {
+        th {
+          color: var(--white);
+
+          &.sort {
+            .btn-sort {
+              color: var(--white);
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  .popup-container {
+    .popup {
+      background-color: #353942;
+
+      .popup-top-left {
+        color: var(--white);
+      }
+    }
+  }
+  // -------------------------------- FIeld --------------------------------//
+
+  .field {
+    display: none;
+  }
+
+  // -------------------------------- BUCKET --------------------------------//
+
+  .list-info-box {
+    .list-count {
+      color: var(--white);
+    }
+  }
+
+  .list-item {
+    box-shadow: none;
+
+    &.folder {
+      &:after {
+        display: none;
+      }
+    }
+
+    .list-info {
+      .title {
+        color: var(--white);
+      }
+    }
+  }
+
+  .list-button-box {
+    button {
+      &.btn-sort {
+      }
+    }
+  }
+
+  .list-tool-box {
+    button {
+      // &.btn-bookmark {
+      //   background: url('/styles/images/icon/ic_bookmark_dark.svg') no-repeat center / 2.4rem;
+      // }
+      // &.btn-download {
+      //   background: url('/styles/images/icon/ic_btn_download_dark.svg') no-repeat center / 2.4rem;
+      // }
+      &.btn-add-collaction {
+        background: url('/styles/images/icon/ic_collection_dark.svg') no-repeat center / 2.4rem;
+      }
+
+      // &.btn-delete-collaction {
+      //   background: url('/styles/images/icon/ic_collection_del_dark.svg') no-repeat center / 2.4rem;
+      // }
+
+      // &.btn-more {
+      //   background: url('/styles/images/icon/ic_more_dark.svg') no-repeat center;
+      // }
+    }
+  }
+
+  .tool-bar {
+    .asset-count {
+      color: var(--white);
+    }
+
+    .tool-bar-left,
+    .tool-bar-center {
+      &:after {
+        background-color: var(--border);
+      }
+    }
+
+    .tool {
+      position: relative;
+      width: 5.4rem;
+      height: 5.4rem;
+      padding: 1.2rem;
+
+      &:hover:not(:disabled) {
+        & .tooltip-tool {
+          display: flex;
+          opacity: 1;
+        }
+      }
+
+      .tooltip-tool {
+        bottom: calc(100% + 1rem) !important;
+        left: 50% !important;
+        transform: translateX(-50%);
+      }
+
+      &:disabled {
+        opacity: 0.3 !important;
+        cursor: default;
+      }
+
+      &.btn-download {
+        background: url('/styles/images/icon/ic_download_dark.svg') no-repeat center;
+      }
+
+      &.btn-duplicate {
+        background: url('/styles/images/icon/ic_duplicate_dark.svg') no-repeat center;
+      }
+
+      &.btn-duplicate-new {
+        background: url('/styles/images/icon/ic_copy_new_dark.svg') no-repeat center;
+      }
+
+      &.btn-modi {
+        background: url('/styles/images/icon/ic_modi_dark.svg') no-repeat center;
+      }
+
+      &.btn-link-copy {
+        background: url('/styles/images/icon/ic_link_dark.svg') no-repeat center;
+      }
+
+      &.btn-link-share {
+        background: url('/styles/images/icon/ic_share_dark.svg') no-repeat center;
+      }
+
+      &.btn-move {
+        background: url('/styles/images/icon/ic_folder_move_dark.svg') no-repeat center;
+      }
+
+      // &.btn-collection {
+      //   background: url('/styles/images/icon/ic_collection_large_dark.svg') no-repeat center;
+      // }
+      // &.btn-bookmark {
+      //   background: url('/styles/images/icon/ic_bookmark_dark.svg') no-repeat center;
+      // }
+      // &.btn-bookmark-del {
+      //   background: url('/styles/images/icon/ic_bookmark_del_dark.svg') no-repeat center;
+      // }
+      &.btn-delete {
+        background: url('/styles/images/icon/ic_delete_dark.svg') no-repeat center;
+      }
+
+      // &.btn-tag {
+      //   background: url('/styles/images/icon/ic_tag_dark.svg') no-repeat center;
+      // }
+      // &.btn-more {
+      //   background: url('/styles/images/icon/ic_more_large_dark.svg') no-repeat center;
+      // }
+    }
+  }
+
+  .loaction-box {
+    .loaction-name {
+      color: var(--white);
+    }
+  }
+}

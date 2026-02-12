@@ -1,0 +1,140 @@
+$lnb-ws-menu-btn: 4.3rem;
+$lnb-folder-menu-btn: 3.9rem;
+$lnb-padding-left: 2.5rem;
+
+.lnb-container {
+  .lnb {
+    .menu-list {
+      .menu {
+        .btn-menu {
+          &.active:before {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            border-left: 4px solid var(--primary);
+            background-color: var(--hover);
+          }
+
+          &:after {
+            content: none !important;
+          }
+
+          &.active:after {
+            content: none !important;
+          }
+
+          .text-box:hover {
+            color: var(--primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+.team {
+  > .btn-menu {
+    background-color: red;
+    font-size: 1.5rem;
+    height: $lnb-ws-menu-btn !important;
+
+    &:before {
+      height: $lnb-ws-menu-btn !important;
+    }
+
+    &:hover:not(.active) {
+      color: var(--gray_1);
+    }
+
+    &:hover:before, &.active:before {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 5.2rem;
+      border-left: 2px solid var(--primary);
+      background-color: var(--hover);
+    }
+
+    .text-box {
+      .icon {
+        flex-shrink: 0;
+        width: 2rem;
+        height: 2rem;
+        min-width: 2rem;
+        margin-right: 0.6rem;
+        border-radius: 50%;
+        rotate: -90deg;
+        background: url('/styles/images/icon/ic_lnb_arrow_down.svg') no-repeat center / 100% auto !important;
+      }
+    }
+
+    &.active {
+      .text-box {
+        .icon {
+          background: url('/styles/images/icon/ic_lnb_arrow_down_active.svg') no-repeat center / 100% auto !important;
+        }
+      }
+    }
+
+    &.show {
+      .text-box {
+        @include flex(row, flex-start, center);
+
+        .icon {
+          rotate: 0deg;
+        }
+      }
+    }
+  }
+}
+
+.folder {
+  > .btn-menu {
+    height: $lnb-folder-menu-btn !important;
+
+    &:hover:not(.active) {
+      color: var(--gray_1) !important;
+    }
+
+    &:hover:before, &.active:before {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: $lnb-folder-menu-btn !important;
+      border-left: 2px solid var(--primary);
+      background-color: var(--hover);
+    }
+
+    .text-box {
+      .icon {
+        flex-shrink: 0;
+        width: 2rem;
+        height: 2rem;
+        min-width: 2rem;
+        margin-right: 0.6rem;
+        border-radius: 50%;
+        rotate: -90deg;
+        background: url('/styles/images/icon/ic_folder_arrow_down.svg') no-repeat center / 100% auto !important;
+      }
+    }
+
+    &.active {
+      .text-box {
+        .icon {
+          background: url('/styles/images/icon/ic_folder_arrow_down_active.svg') no-repeat center / 100% auto !important;
+        }
+      }
+    }
+
+    &.show {
+      .text-box {
+        @include flex(row, flex-start, center);
+
+        .icon {
+          rotate: 0deg;
+        }
+      }
+    }
+  }
+}
